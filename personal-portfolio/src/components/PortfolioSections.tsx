@@ -1,6 +1,24 @@
 "use client";
 
-import { Award as AwardIcon, BriefcaseBusiness, ExternalLink, GraduationCap, Mail, Phone, Rocket, Wrench } from "lucide-react";
+import {
+  ArrowUp,
+  Award as AwardIcon,
+  Bot,
+  Boxes,
+  BrainCircuit,
+  CarFront,
+  CodeXml,
+  Eye,
+  Factory,
+  GraduationCap,
+  Mail,
+  Phone,
+  Ship,
+  ShoppingCart,
+  Workflow,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import { projects } from "@/content/projects";
 import {
   awards,
@@ -14,6 +32,10 @@ import { siteContent } from "@/content/site";
 import { getLocalizedText } from "@/content/types";
 import { useLanguage } from "./LanguageProvider";
 import { Section } from "./Section";
+
+const researchIcons: LucideIcon[] = [Bot, Workflow, Factory];
+const projectIcons: LucideIcon[] = [Ship, CarFront, ShoppingCart];
+const skillIcons: LucideIcon[] = [Eye, Boxes, CodeXml, BrainCircuit];
 
 function findSection(id: string) {
   const section = portfolioSections.find((item) => item.id === id);
@@ -55,10 +77,13 @@ export function PortfolioSections() {
 
       <Section section={findSection("research")} locale={locale} className="section-muted">
         <div className="card-grid">
-          {researchAreas.map((area) => (
+          {researchAreas.map((area, index) => {
+            const AreaIcon = researchIcons[index] ?? Bot;
+
+            return (
             <article className="info-card" key={area.title.en}>
               <div className="card-icon">
-                <Rocket aria-hidden="true" size={20} />
+                <AreaIcon aria-hidden="true" size={20} />
               </div>
               <h3>{getLocalizedText(area.title, locale)}</h3>
               <p>{getLocalizedText(area.description, locale)}</p>
@@ -68,20 +93,24 @@ export function PortfolioSections() {
                 ))}
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
       <Section section={findSection("projects")} locale={locale}>
         <div className="project-list">
-          {projects.map((project) => (
+          {projects.map((project, index) => {
+            const ProjectIcon = projectIcons[index] ?? Wrench;
+
+            return (
             <article className="project-card" key={project.slug}>
               <div className="project-card-header">
                 <div>
                   <p>{getLocalizedText(project.category, locale)}</p>
                   <h3>{getLocalizedText(project.title, locale)}</h3>
                 </div>
-                <BriefcaseBusiness aria-hidden="true" size={22} />
+                <ProjectIcon aria-hidden="true" size={22} />
               </div>
               <div className="project-card-body">
                 <div>
@@ -103,7 +132,8 @@ export function PortfolioSections() {
                 ))}
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
@@ -155,10 +185,13 @@ export function PortfolioSections() {
 
       <Section section={findSection("skills")} locale={locale}>
         <div className="skills-grid">
-          {skillGroups.map((group) => (
+          {skillGroups.map((group, index) => {
+            const GroupIcon = skillIcons[index] ?? Wrench;
+
+            return (
             <article className="skill-card" key={group.title.en}>
               <div className="skill-card-title">
-                <Wrench aria-hidden="true" size={18} />
+                <GroupIcon aria-hidden="true" size={18} />
                 <h3>{getLocalizedText(group.title, locale)}</h3>
               </div>
               <div className="tag-row">
@@ -167,7 +200,8 @@ export function PortfolioSections() {
                 ))}
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
@@ -191,7 +225,7 @@ export function PortfolioSections() {
               {profile.phone}
             </a>
             <a href="#home">
-              <ExternalLink aria-hidden="true" size={18} />
+              <ArrowUp aria-hidden="true" size={18} />
               {locale === "en" ? "Back to top" : "回到顶部"}
             </a>
           </div>

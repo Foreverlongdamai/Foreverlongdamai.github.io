@@ -12,10 +12,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "Bilingual personal portfolio for Mai Long, focused on embodied intelligence, VLA models, computer vision, simulation, and web development.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://foreverlongdamai.github.io"),
   title: "Mai Long | Personal Portfolio",
-  description:
-    "Bilingual personal portfolio for Mai Long, focused on embodied intelligence, VLA models, computer vision, simulation, and web development.",
+  description: siteDescription,
+  openGraph: {
+    title: "Mai Long | Personal Portfolio",
+    description: siteDescription,
+    url: "/",
+    siteName: "Mai Long",
+    type: "website",
+    locale: "en_US",
+    alternateLocale: "zh_CN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Mai Long | Personal Portfolio",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({

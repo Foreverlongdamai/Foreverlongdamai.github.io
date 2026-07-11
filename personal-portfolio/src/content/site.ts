@@ -9,6 +9,7 @@ export const siteContent: SiteContent = {
     { id: "thoughts", label: { en: "Thoughts", zh: "观点" } },
     { id: "education", label: { en: "Education", zh: "教育" } },
     { id: "awards", label: { en: "Awards", zh: "奖项" } },
+    { id: "skills", label: { en: "Skills", zh: "技能" } },
     { id: "contact", label: { en: "Contact", zh: "联系" } },
   ],
   profile: {
