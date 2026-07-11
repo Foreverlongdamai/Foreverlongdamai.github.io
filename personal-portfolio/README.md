@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Personal Portfolio · 个人主页
 
-## Getting Started
+Bilingual (English / 中文) personal portfolio for Mai Long, built with Next.js 16, React 19, and Tailwind CSS 4. Covers research experience, projects, education, and contact information.
 
-First, run the development server:
+双语个人简历网站，使用 Next.js 16 + React 19 + Tailwind CSS 4 构建，包含研究经历、项目、教育背景与联系方式。
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm test        # content validation tests (vitest)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build & Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site is a fully static export (`output: "export"` in [next.config.ts](next.config.ts)):
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # emits static site to out/
+```
 
-## Learn More
+Deployment to GitHub Pages is automated by [.github/workflows/deploy.yml](../.github/workflows/deploy.yml): every push to `master`/`main` builds the site and publishes it via GitHub Pages. The workflow sets `NEXT_PUBLIC_BASE_PATH` automatically — `/<repo-name>` for project pages, empty for `<user>.github.io` repositories — so no config change is needed when renaming the repo.
 
-To learn more about Next.js, take a look at the following resources:
+## Content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All resume content lives in typed data files under [src/content/](src/content/):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [site.ts](src/content/site.ts) — profile, navigation, contact info
+- [sections.ts](src/content/sections.ts) — about, research, education, awards
+- [projects.ts](src/content/projects.ts) — project cards
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit those files to update the resume; components under `src/components/` render whatever the content files declare.
