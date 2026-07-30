@@ -18,4 +18,17 @@ describe("PortfolioSections", () => {
     expect(markup).toContain('rel="noopener noreferrer"');
     expect(markup).toContain("GitHub Repository");
   });
+
+  it("renders the Cranfield University research internship", () => {
+    const markup = renderToStaticMarkup(
+      <LanguageProvider>
+        <PortfolioSections />
+      </LanguageProvider>,
+    );
+
+    expect(markup).toContain('id="experience"');
+    expect(markup).toContain("Research Intern");
+    expect(markup).toContain("Cranfield University, United Kingdom");
+    expect(markup).toContain("Dr Linghai Lu");
+  });
 });

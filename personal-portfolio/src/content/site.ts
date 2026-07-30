@@ -5,6 +5,7 @@ export const siteContent: SiteContent = {
     { id: "home", label: { en: "Home", zh: "首页" } },
     { id: "about", label: { en: "About", zh: "简介" } },
     { id: "research", label: { en: "Research Fields", zh: "研究领域" } },
+    { id: "experience", label: { en: "Experience", zh: "经历" } },
     { id: "projects", label: { en: "Projects", zh: "项目" } },
     { id: "thoughts", label: { en: "Thoughts", zh: "观点" } },
     { id: "education", label: { en: "Education", zh: "教育" } },
@@ -23,8 +24,8 @@ export const siteContent: SiteContent = {
       zh: "我构建面向具身智能体与 eVTOL 飞行员训练评估的可解释 AI 和仿真系统。",
     },
     intro: {
-      en: "I am pursuing an M.S. in Computer Science at Shandong University of Science and Technology. My work spans interpretable multimodal assessment for eVTOL flight training, underwater visual detection, traffic simulation, and web development, alongside research in embodied intelligence.",
-      zh: "我目前在山东科技大学攻读计算机科学硕士。我的经历涵盖 eVTOL 飞行训练的可解释多模态评估、水下视觉检测、交通场景仿真和 Web 开发，并持续开展具身智能方向的研究。",
+      en: "I am pursuing an M.S. in Computer Science at Shandong University of Science and Technology and undertaking a 2026 research internship at Cranfield University. My work spans interpretable multimodal assessment for eVTOL flight training, underwater visual detection, traffic simulation, and web development, alongside research in embodied intelligence.",
+      zh: "我目前在山东科技大学攻读计算机科学硕士，并于 2026 年在英国克兰菲尔德大学开展研究实习。我的经历涵盖 eVTOL 飞行训练的可解释多模态评估、水下视觉检测、交通场景仿真和 Web 开发，并持续开展具身智能方向的研究。",
     },
     location: { en: "Qingdao, Shandong, China", zh: "中国山东青岛" },
     email: "long204323@gmail.com",

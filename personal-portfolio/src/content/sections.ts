@@ -30,6 +30,18 @@ export const portfolioSections: PortfolioSection[] = [
     },
   },
   {
+    id: "experience",
+    eyebrow: { en: "Experience", zh: "实习经历" },
+    title: {
+      en: "Research internship at Cranfield University",
+      zh: "英国克兰菲尔德大学研究实习",
+    },
+    description: {
+      en: "An ongoing UK internship connecting flight simulation, human factors, and interpretable AI for eVTOL pilot training assessment.",
+      zh: "一段正在进行的英国研究实习，围绕飞行仿真、人因与可解释 AI，开展 eVTOL 飞行员训练评估研究。",
+    },
+  },
+  {
     id: "projects",
     eyebrow: { en: "Selected Work", zh: "代表项目" },
     title: { en: "Projects that connect AI methods with usable systems", zh: "连接 AI 方法与可用系统的项目" },
@@ -163,6 +175,24 @@ export const education: TimelineItem[] = [
     description: {
       en: "Undergraduate major in software engineering, building the foundation for programming, web development, and systems work.",
       zh: "本科专业为软件工程，建立了编程、Web 开发和系统实现方面的基础。",
+    },
+  },
+];
+
+export const experience: TimelineItem[] = [
+  {
+    period: {
+      en: "May 2026 – November 2026 (Ongoing)",
+      zh: "2026 年 5 月 – 11 月（进行中）",
+    },
+    title: { en: "Research Intern", zh: "研究实习生" },
+    organization: {
+      en: "Cranfield University, United Kingdom",
+      zh: "英国克兰菲尔德大学",
+    },
+    description: {
+      en: "Working under the supervision of Dr Linghai Lu, Reader in Flight Dynamics and Simulation, on an AI-based system for evaluating eVTOL pilot training effectiveness, with a focus on interpretable multimodal assessment and traceable training evidence.",
+      zh: "在 Linghai Lu 博士指导下，参与基于 AI 的 eVTOL 飞行员训练有效性评估系统研究，重点开展可解释多模态评估与可追溯训练证据设计。",
     },
   },
 ];

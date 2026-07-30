@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { siteContent } from "./site";
 import { projects } from "./projects";
 import { portfolioSections, researchAreas, skillGroups } from "./sections";
+import * as sectionContent from "./sections";
 import { getLocalizedText, isLocale } from "./types";
 
 describe("localized content model", () => {
@@ -95,5 +96,31 @@ describe("localized content model", () => {
     );
     expect(pilotProject.impact.en).toContain("engineering prerelease");
     expect(pilotProject.impact.zh).toContain("工程预发布");
+  });
+
+  it("records the ongoing Cranfield University research internship", () => {
+    const experience = Reflect.get(sectionContent, "experience");
+
+    expect(siteContent.navigation).toContainEqual({
+      id: "experience",
+      label: { en: "Experience", zh: "经历" },
+    });
+    expect(experience).toEqual([
+      {
+        period: {
+          en: "May 2026 – November 2026 (Ongoing)",
+          zh: "2026 年 5 月 – 11 月（进行中）",
+        },
+        title: { en: "Research Intern", zh: "研究实习生" },
+        organization: {
+          en: "Cranfield University, United Kingdom",
+          zh: "英国克兰菲尔德大学",
+        },
+        description: {
+          en: expect.stringContaining("Dr Linghai Lu"),
+          zh: expect.stringContaining("Linghai Lu"),
+        },
+      },
+    ]);
   });
 });

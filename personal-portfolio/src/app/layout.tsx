@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteDescription =
-  "Bilingual personal portfolio for Mai Long, focused on embodied intelligence, eVTOL pilot training effectiveness, interpretable multimodal assessment, computer vision, and simulation.";
+  "Bilingual personal portfolio for Mai Long, a Cranfield University research intern focused on embodied intelligence, eVTOL pilot training effectiveness, interpretable multimodal assessment, computer vision, and simulation.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://foreverlongdamai.github.io"),

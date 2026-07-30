@@ -7,6 +7,7 @@ import {
   Bot,
   Boxes,
   BrainCircuit,
+  BriefcaseBusiness,
   CarFront,
   CodeXml,
   Eye,
@@ -24,6 +25,7 @@ import { projects } from "@/content/projects";
 import {
   awards,
   education,
+  experience,
   portfolioSections,
   researchAreas,
   skillGroups,
@@ -99,7 +101,25 @@ export function PortfolioSections() {
         </div>
       </Section>
 
-      <Section section={findSection("projects")} locale={locale}>
+      <Section section={findSection("experience")} locale={locale}>
+        <div className="timeline">
+          {experience.map((item) => (
+            <article className="timeline-item" key={`${item.title.en}-${item.period.en}`}>
+              <div className="timeline-icon">
+                <BriefcaseBusiness aria-hidden="true" size={19} />
+              </div>
+              <div>
+                <p>{getLocalizedText(item.period, locale)}</p>
+                <h3>{getLocalizedText(item.title, locale)}</h3>
+                <strong>{getLocalizedText(item.organization, locale)}</strong>
+                <span>{getLocalizedText(item.description, locale)}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section section={findSection("projects")} locale={locale} className="section-muted">
         <div className="project-list">
           {projects.map((project, index) => {
             const ProjectIcon = projectIcons[index] ?? Wrench;
@@ -150,7 +170,7 @@ export function PortfolioSections() {
         </div>
       </Section>
 
-      <Section section={findSection("thoughts")} locale={locale} className="section-muted">
+      <Section section={findSection("thoughts")} locale={locale}>
         <div className="thought-list">
           {thoughts.map((thought, index) => (
             <article className="thought-item" key={thought.title.en}>
@@ -164,7 +184,7 @@ export function PortfolioSections() {
         </div>
       </Section>
 
-      <Section section={findSection("education")} locale={locale}>
+      <Section section={findSection("education")} locale={locale} className="section-muted">
         <div className="timeline">
           {education.map((item) => (
             <article className="timeline-item" key={`${item.title.en}-${item.period.en}`}>
@@ -182,7 +202,7 @@ export function PortfolioSections() {
         </div>
       </Section>
 
-      <Section section={findSection("awards")} locale={locale} className="section-muted">
+      <Section section={findSection("awards")} locale={locale}>
         <div className="award-grid">
           {awards.map((award) => (
             <article className="award-card" key={award.title.en}>
@@ -196,7 +216,7 @@ export function PortfolioSections() {
         </div>
       </Section>
 
-      <Section section={findSection("skills")} locale={locale}>
+      <Section section={findSection("skills")} locale={locale} className="section-muted">
         <div className="skills-grid">
           {skillGroups.map((group, index) => {
             const GroupIcon = skillIcons[index] ?? Wrench;
