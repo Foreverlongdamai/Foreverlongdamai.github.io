@@ -1,202 +1,219 @@
-# AI Viewpoint and Practice Section Redesign
+# AI Agent Practice Narrative Section Redesign
 
 Date: 2026-07-30
 Project: `D:\A_personal_proj\personal-portfolio`
+Revision: 2 — replaces the approved three-card AI viewpoint design
 Status: Approved content design; implementation pending written-spec review
 
 ## 1. Goal
 
-Replace the current embodied-intelligence technical-thoughts content with a
-bilingual section that presents Mai Long's perspective on current AI and his
-practical AI-native way of working.
+Replace the current AI viewpoint module with a bilingual account of Mai Long's
+hands-on AI Agent experience. The new module must read as one continuous,
+coherent narrative rather than three numbered points.
 
-The section should communicate four points clearly:
+The narrative follows this order:
 
-- AI can turn a well-developed idea into a working result with high speed and
-  accuracy when the input is clear.
-- The quality of the idea, context, constraints, and acceptance criteria
-  determines the quality of implementation.
-- Mai Long can understand requirements from documents and conversation and
-  translate them into specifications that AI agents can execute reliably.
-- Mai Long is a long-term, high-frequency user of GPT and Claude, with
-  approximately 10 billion cumulative tokens used across two ChatGPT accounts,
-  and has practical command of multiple AI agent tools.
+1. products used and depth of use;
+2. practical view formed through sustained use;
+3. personal advantages in requirements understanding, specification, agent
+   steering, verification, and delivery.
 
-## 2. Audience and Tone
+## 2. Approved Facts and Attribution
+
+The public copy may state:
+
+- Mai Long is a long-term, intensive user of Codex and Claude Code.
+- Many current projects use AI-agent-centered workflows.
+- Cumulative usage across two ChatGPT accounts is approximately 10 billion
+  tokens.
+- Mai Long uses AI agents across requirements analysis, specification design,
+  implementation, debugging, testing, documentation, and final delivery.
+
+The approximately 10-billion-token figure applies only to the two ChatGPT
+accounts. It must not be presented as the combined usage of Codex and Claude
+Code. The figure is user-supplied, remains qualified with `approximately / 约`,
+and is not described as independently audited.
+
+## 3. Audience and Tone
 
 Primary readers are recruiters, research supervisors, technical collaborators,
 and project partners.
 
-The tone must be:
+The copy must be:
 
-- professional and quantitative rather than fan-oriented;
-- confident without implying that unverified AI output is accepted blindly;
-- personal enough to show intensive hands-on experience;
-- focused on requirements, specification, execution, verification, and
-  delivery rather than a list of model brands.
+- professional, direct, and evidence-oriented;
+- written as practical experience rather than a personal-opinion essay;
+- confident without implying that AI output is accepted without verification;
+- fluent and continuous, with no numbered claims, bullet list, or card-by-card
+  fragmentation in the rendered page.
 
-The phrase "狂热用户" will therefore be rendered as "长期高频深度用户" in
-Chinese and "long-term, high-frequency user" in English. The token figure will
-be qualified with "约" / "approximately" and attributed to two ChatGPT
-accounts.
+## 4. Information Architecture
 
-The approximate token total is a user-supplied usage estimate. It will be
-presented as approximate and will not be described as independently audited.
+Keep the existing section anchor `thoughts` to preserve incoming links, but
+change the visible navigation label and content:
 
-## 3. Information Architecture
+- navigation: `AI Practice / AI 实践`;
+- left column: eyebrow, title, and one-sentence context;
+- right column: one continuous bilingual narrative inside a single restrained
+  text panel;
+- desktop: retain the existing two-column section shell;
+- mobile: retain the existing single-column responsive shell.
 
-Keep the existing section structure and `thoughts` anchor:
+Remove the three numbered `01–03` cards completely. Do not replace them with a
+timeline, workflow diagram, metrics grid, or another divided presentation.
 
-- navigation: a short `AI Views / AI 观点` label;
-- left column: eyebrow, title, and summary;
-- right column: three numbered cards;
-- desktop: existing two-column section layout;
-- mobile: existing single-column layout.
-
-No new component, data type, interaction, or visual treatment is required.
-
-## 4. Final Bilingual Copy
+## 5. Final Bilingual Copy
 
 ### Navigation
 
-- English: `AI Views`
-- Chinese: `AI 观点`
+- English: `AI Practice`
+- Chinese: `AI 实践`
 
 ### Section heading
 
 Eyebrow:
 
-- English: `AI Viewpoint & Practice`
-- Chinese: `AI 观点与实践`
+- English: `AI Agent Experience`
+- Chinese: `AI Agent 实践经历`
 
 Title:
 
-- English: `My Perspective on AI and How I Put It into Practice`
-- Chinese: `我对当前 AI 领域的看法与实践`
+- English: `From Codex and Claude Code to AI-Native Delivery`
+- Chinese: `从 Codex 与 Claude Code 到 AI 原生交付`
 
 Description:
 
-- English: `I see AI as a highly efficient execution partner. When an idea is
-  well developed and expressed through clear specifications or dialogue, AI
-  can turn it into a working result quickly and accurately. My role is to
-  understand the real requirement, structure it into tasks AI can reliably
-  interpret, and verify the outcome.`
-- Chinese: `我认为 AI 是高效率的执行伙伴。当一个想法足够完善，并通过清晰的
-  规格文档或沟通描述表达出来时，AI 可以快速、准确地将其实现。我的作用是理解
-  真实需求，将其组织为 AI 能够可靠理解的任务，并验证最终成果。`
+- English: `Deep, hands-on experience using AI agents to turn requirements
+  into working systems.`
+- Chinese: `以 AI Agent 为核心，把需求转化为可运行系统的深度实践。`
 
-### Card 01
+### Continuous narrative
 
-Title:
+English:
 
-- English: `Clear Ideas Determine Implementation Quality`
-- Chinese: `清晰的想法决定实现质量`
+`I am a long-term, intensive user of Codex and Claude Code, and my cumulative
+usage across two ChatGPT accounts is approximately 10 billion tokens. Many of
+my current projects are delivered through AI-agent-centered workflows spanning
+requirements analysis, specification design, implementation, debugging,
+testing, documentation, and final delivery. Through sustained practice, I have
+become convinced that the speed and accuracy of AI depend heavily on how
+complete the idea it receives is: when goals, context, constraints, and
+acceptance criteria are clear and organized through specifications or
+continued dialogue into context the model can understand, AI can turn ideas
+into working results with remarkable speed. My advantage is not simply
+proficiency with the tools; it is the ability to understand real requirements
+quickly from documents and communication, identify and resolve ambiguity,
+translate requirements into executable specifications for agents, and
+continuously verify and steer the implementation until the project is
+delivered accurately and efficiently.`
 
-Body:
+Chinese:
 
-- English: `AI performs best when goals, context, constraints, and acceptance
-  criteria are explicit. I use specifications, structured documents, and
-  iterative dialogue to turn ideas into executable task descriptions.`
-- Chinese: `当目标、背景、约束和验收标准足够明确时，AI 能发挥出最佳效果。
-  我通过规格文档、结构化说明和迭代沟通，把想法整理成可执行的任务描述。`
+`我长期深度使用 Codex 与 Claude Code，并在两个 ChatGPT 账号中累计使用约
+100 亿 token。如今，我的许多项目都通过以 AI Agent 为核心的工作流完成，覆盖
+需求分析、规格设计、代码实现、调试、测试、文档与最终交付。在持续实践中，我
+越来越确信，AI 的实现效率和准确性高度取决于输入想法的完整度：当目标、背景、
+约束和验收标准足够清晰，并通过规格文档或持续沟通组织为 AI 能够理解的上下文
+时，AI 可以非常迅速地把想法转化为可运行成果。我的优势不只是熟练使用工具，
+而是能够从文档和沟通中快速理解真实需求、识别并消除歧义、把需求转化为 Agent
+可执行的规格，并在实现过程中持续验证结果、修正方向，最终推动项目准确、高效
+地落地。`
 
-### Card 02
+## 6. Content and Component Design
 
-Title:
+The content layer will expose one bilingual narrative instead of a `Thought[]`
+card collection:
 
-- English: `Translating Requirements into AI-Ready Specifications`
-- Chinese: `把需求转化为 AI 可理解的规格`
+```ts
+export const aiAgentPracticeNarrative: LocalizedText = {
+  en: "I am a long-term, intensive user of Codex and Claude Code, and my cumulative usage across two ChatGPT accounts is approximately 10 billion tokens. Many of my current projects are delivered through AI-agent-centered workflows spanning requirements analysis, specification design, implementation, debugging, testing, documentation, and final delivery. Through sustained practice, I have become convinced that the speed and accuracy of AI depend heavily on how complete the idea it receives is: when goals, context, constraints, and acceptance criteria are clear and organized through specifications or continued dialogue into context the model can understand, AI can turn ideas into working results with remarkable speed. My advantage is not simply proficiency with the tools; it is the ability to understand real requirements quickly from documents and communication, identify and resolve ambiguity, translate requirements into executable specifications for agents, and continuously verify and steer the implementation until the project is delivered accurately and efficiently.",
+  zh: "我长期深度使用 Codex 与 Claude Code，并在两个 ChatGPT 账号中累计使用约 100 亿 token。如今，我的许多项目都通过以 AI Agent 为核心的工作流完成，覆盖需求分析、规格设计、代码实现、调试、测试、文档与最终交付。在持续实践中，我越来越确信，AI 的实现效率和准确性高度取决于输入想法的完整度：当目标、背景、约束和验收标准足够清晰，并通过规格文档或持续沟通组织为 AI 能够理解的上下文时，AI 可以非常迅速地把想法转化为可运行成果。我的优势不只是熟练使用工具，而是能够从文档和沟通中快速理解真实需求、识别并消除歧义、把需求转化为 Agent 可执行的规格，并在实现过程中持续验证结果、修正方向，最终推动项目准确、高效地落地。",
+};
+```
 
-Body:
+The renderer will replace the `.thought-list` map with one semantic article:
 
-- English: `I quickly understand requirements through documents and
-  conversation, resolve ambiguity, and translate them into context, tasks,
-  interfaces, checkpoints, and delivery criteria that AI agents can follow
-  accurately.`
-- Chinese: `我能够通过文档和沟通快速理解需求、消除歧义，并将其转化为 AI
-  Agent 可准确执行的上下文、任务、接口、检查点与交付标准。`
+```tsx
+<Section section={findSection("thoughts")} locale={locale}>
+  <article className="lead-panel ai-agent-practice-panel">
+    <p>{getLocalizedText(aiAgentPracticeNarrative, locale)}</p>
+  </article>
+</Section>
+```
 
-### Card 03
+The existing `lead-panel` style provides the restrained border, background,
+padding, readable line height, and text color required for the single narrative.
+No CSS change is planned unless browser verification finds a real overflow or
+readability defect.
 
-Title:
-
-- English: `Deep, Hands-On AI Agent Practice`
-- Chinese: `深度 AI Agent 实践`
-
-Body:
-
-- English: `Many of my projects now use AI-native workflows. I am a long-term,
-  high-frequency user of GPT and Claude; across two ChatGPT accounts,
-  cumulative usage is approximately 10 billion tokens. I am proficient with
-  AI agent tools for research, coding, debugging, documentation, and
-  end-to-end project delivery.`
-- Chinese: `我的许多项目采用 AI 原生工作流完成。我是 GPT 与 Claude 的长期
-  高频深度用户，两个 ChatGPT 账号累计使用约 100 亿 token，并熟练使用多类 AI
-  Agent 工具完成研究、编程、调试、文档与端到端项目交付。`
-
-## 5. Implementation Boundary
+## 7. Implementation Boundary
 
 Expected source changes:
 
 - `personal-portfolio/src/content/site.ts`
-  - update the `thoughts` navigation label only;
+  - update the visible navigation label;
 - `personal-portfolio/src/content/sections.ts`
-  - replace the `thoughts` section heading and all three cards;
+  - replace the section heading and export one bilingual narrative;
+  - remove the obsolete three-card `thoughts` export;
+- `personal-portfolio/src/components/PortfolioSections.tsx`
+  - import the narrative and render one article instead of numbered cards;
 - `personal-portfolio/src/content/content.test.ts`
-  - add exact content-model assertions before production edits;
+  - assert the approved navigation, heading, and exact bilingual narrative;
 - `personal-portfolio/src/components/PortfolioSections.test.tsx`
-  - add rendering assertions only if the current test setup can verify the new
-    section without duplicating content-model coverage.
+  - assert the rendered narrative is present and the numbered thought-card
+    structure is absent.
 
-The following should remain unchanged unless browser verification reveals a
-real layout defect:
+Keep unchanged:
 
-- `thoughts` section ID and anchor;
-- `Thought` TypeScript type;
-- `PortfolioSections` rendering structure;
-- three-card count and numbering;
-- global CSS and responsive breakpoints.
+- section ID and anchor `thoughts`;
+- shared `Section` component;
+- unrelated project, research, experience, education, award, skill, and contact
+  content;
+- DOCX resume.
 
-## 6. Testing and Verification
+The unused exported `Thought` type may remain in `types.ts` because removing a
+public content type is unrelated cleanup and is not required for this change.
+
+## 8. Testing and Verification
 
 Implementation will follow test-driven development:
 
-1. Add a failing content test for the new navigation label, section heading,
-   three card titles, and the approximate 10-billion-token statement.
-2. Run the targeted test and confirm it fails because the old content is still
-   present.
-3. Replace the production content with the approved bilingual copy.
-4. Run the targeted test and then the complete test suite.
+1. Replace the existing content test with expectations for the approved
+   navigation, heading, and continuous narrative.
+2. Add a rendering test that requires the continuous narrative and rejects the
+   old `.thought-item` / `01–03` presentation.
+3. Run the targeted tests and confirm they fail against the current three-card
+   implementation.
+4. Apply the minimal content and component changes.
+5. Re-run targeted tests and then the complete suite.
 
 Quality gates:
 
-- Vitest suite passes with no failures.
+- Vitest passes with zero failures.
 - ESLint passes.
 - TypeScript `tsc --noEmit` passes.
 - Next.js production build succeeds.
-- Desktop browser check at 1440 x 1000 in English and Chinese.
-- Mobile browser check at 390 x 844 in English and Chinese.
-- Section title and all three cards remain readable without clipping or body
-  horizontal overflow.
+- English and Chinese render as one continuous narrative.
+- Desktop 1440 x 1000 and mobile 390 x 844 layouts remain readable.
+- The narrative panel and page have no horizontal overflow or clipping.
 - Browser console contains no errors or warnings caused by the change.
 
-## 7. Deployment
+## 9. Deployment
 
 After local verification:
 
-1. Commit only the approved content and its tests.
-2. Push `main` to the existing GitHub repository.
-3. Wait for the GitHub Pages workflow to complete successfully.
-4. Verify the deployed English and Chinese content at
-   `https://foreverlongdamai.github.io/`.
+1. commit only the approved content, component, and tests;
+2. push `main` to the existing GitHub repository;
+3. wait for the exact GitHub Pages workflow run to succeed;
+4. verify the deployed English and Chinese module at
+   `https://foreverlongdamai.github.io/#thoughts`.
 
-## 8. Non-Goals
+## 10. Non-Goals
 
-This change will not:
+This revision will not:
 
-- add new cards, charts, model logos, or token counters;
-- add external links to GPT, Claude, or agent tools;
-- claim that AI output is accepted without human requirement definition and
-  outcome verification;
-- modify the DOCX resume;
-- change unrelated research, project, experience, education, or skill content.
+- retain or recreate the three numbered cards;
+- add product logos, token counters, diagrams, timelines, or extra links;
+- present the module primarily as “my view of AI”;
+- claim that the 10-billion-token figure includes Claude Code;
+- modify the DOCX resume or unrelated website sections.
