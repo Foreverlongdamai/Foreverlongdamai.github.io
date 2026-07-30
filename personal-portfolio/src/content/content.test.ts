@@ -30,6 +30,10 @@ describe("localized content model", () => {
   it("contains bilingual identity and contact information", () => {
     expect(siteContent.profile.name.en).toBe("Mai Long");
     expect(siteContent.profile.name.zh).toBe("Mai Long");
+    expect(siteContent.profile.location).toEqual({
+      en: "Shandong University of Science and Technology · Cranfield University, UK",
+      zh: "山东科技大学 · 英国克兰菲尔德大学",
+    });
     expect(siteContent.profile.email).toContain("@");
     expect(siteContent.profile.phone).toMatch(/\d/);
   });
