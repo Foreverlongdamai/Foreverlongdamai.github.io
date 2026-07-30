@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { siteContent } from "./site";
 import { projects } from "./projects";
-import { portfolioSections, researchAreas, skillGroups } from "./sections";
+import {
+  portfolioSections,
+  researchAreas,
+  skillGroups,
+  thoughts,
+} from "./sections";
 import * as sectionContent from "./sections";
 import { getLocalizedText, isLocale } from "./types";
 
@@ -76,6 +81,59 @@ describe("localized content model", () => {
     expect(researchSkillGroup?.skills).toEqual([
       "Embodied Intelligence",
       "eVTOL Pilot Training Effectiveness",
+    ]);
+  });
+
+  it("presents the approved bilingual AI viewpoint and practice narrative", () => {
+    const thoughtSection = portfolioSections.find((section) => section.id === "thoughts");
+
+    expect(siteContent.navigation).toContainEqual({
+      id: "thoughts",
+      label: { en: "AI Views", zh: "AI 观点" },
+    });
+    expect(thoughtSection).toEqual({
+      id: "thoughts",
+      eyebrow: { en: "AI Viewpoint & Practice", zh: "AI 观点与实践" },
+      title: {
+        en: "My Perspective on AI and How I Put It into Practice",
+        zh: "我对当前 AI 领域的看法与实践",
+      },
+      description: {
+        en: "I see AI as a highly efficient execution partner. When an idea is well developed and expressed through clear specifications or dialogue, AI can turn it into a working result quickly and accurately. My role is to understand the real requirement, structure it into tasks AI can reliably interpret, and verify the outcome.",
+        zh: "我认为 AI 是高效率的执行伙伴。当一个想法足够完善，并通过清晰的规格文档或沟通描述表达出来时，AI 可以快速、准确地将其实现。我的作用是理解真实需求，将其组织为 AI 能够可靠理解的任务，并验证最终成果。",
+      },
+    });
+    expect(thoughts).toEqual([
+      {
+        title: {
+          en: "Clear Ideas Determine Implementation Quality",
+          zh: "清晰的想法决定实现质量",
+        },
+        body: {
+          en: "AI performs best when goals, context, constraints, and acceptance criteria are explicit. I use specifications, structured documents, and iterative dialogue to turn ideas into executable task descriptions.",
+          zh: "当目标、背景、约束和验收标准足够明确时，AI 能发挥出最佳效果。我通过规格文档、结构化说明和迭代沟通，把想法整理成可执行的任务描述。",
+        },
+      },
+      {
+        title: {
+          en: "Translating Requirements into AI-Ready Specifications",
+          zh: "把需求转化为 AI 可理解的规格",
+        },
+        body: {
+          en: "I quickly understand requirements through documents and conversation, resolve ambiguity, and translate them into context, tasks, interfaces, checkpoints, and delivery criteria that AI agents can follow accurately.",
+          zh: "我能够通过文档和沟通快速理解需求、消除歧义，并将其转化为 AI Agent 可准确执行的上下文、任务、接口、检查点与交付标准。",
+        },
+      },
+      {
+        title: {
+          en: "Deep, Hands-On AI Agent Practice",
+          zh: "深度 AI Agent 实践",
+        },
+        body: {
+          en: "Many of my projects now use AI-native workflows. I am a long-term, high-frequency user of GPT and Claude; across two ChatGPT accounts, cumulative usage is approximately 10 billion tokens. I am proficient with AI agent tools for research, coding, debugging, documentation, and end-to-end project delivery.",
+          zh: "我的许多项目采用 AI 原生工作流完成。我是 GPT 与 Claude 的长期高频深度用户，两个 ChatGPT 账号累计使用约 100 亿 token，并熟练使用多类 AI Agent 工具完成研究、编程、调试、文档与端到端项目交付。",
+        },
+      },
     ]);
   });
 
