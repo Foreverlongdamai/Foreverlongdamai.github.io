@@ -494,6 +494,10 @@ body {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.research-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .award-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -576,6 +580,32 @@ body {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.project-repository-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(94, 234, 212, 0.36);
+  border-radius: var(--radius-control);
+  background: rgba(56, 214, 201, 0.09);
+  padding: 0.65rem 0.82rem;
+  color: #d9fffb;
+  font-family: var(--font-data);
+  font-size: 0.82rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  touch-action: manipulation;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.project-repository-link:hover {
+  border-color: rgba(94, 234, 212, 0.72);
+  background: rgba(56, 214, 201, 0.16);
+  color: #f2fffd;
 }
 
 .thought-item,

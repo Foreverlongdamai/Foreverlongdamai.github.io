@@ -2,6 +2,39 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
+    slug: "pilot-assessment-ai-system",
+    title: {
+      en: "AI-Based System for Evaluating eVTOL Pilot Training Effectiveness",
+      zh: "基于 AI 的 eVTOL 飞行员训练有效性评估系统",
+    },
+    category: {
+      en: "eVTOL / Interpretable Multimodal Assessment",
+      zh: "eVTOL / 可解释多模态评估",
+    },
+    scenario: {
+      en: "VR flight training produces flight-state, control, imagery, gaze/AOI, and physiological data, while task completion alone cannot explain how a pilot controlled the vehicle, allocated attention, or responded to workload.",
+      zh: "VR 飞行训练会产生飞行状态、操纵输入、画面、眼动/AOI 和生理信号等多模态数据，但仅看任务是否完成，无法解释飞行员如何操纵飞行器、分配注意力或应对工作负荷。",
+    },
+    work: {
+      en: "I designed and implemented an offline Windows platform with a WinUI 3/.NET 10 frontend and Python 3.11/SQLite assessment core. Typed EvidenceRecipe pipelines model X/U/I/G/P interfaces, while missing-modality handling, task-specific schemes, editable Bayesian-network/CPT inference, and immutable RunSnapshots make each assessment interpretable and traceable.",
+      zh: "我设计并实现了一个离线 Windows 平台，采用 WinUI 3/.NET 10 前端与 Python 3.11/SQLite 评估核心。系统通过类型化 EvidenceRecipe 管线建模 X/U/I/G/P 接口，并以缺失模态处理、任务化方案、可编辑贝叶斯网络/CPT 推断和不可变 RunSnapshot 保证评估过程可解释、可追溯。",
+    },
+    impact: {
+      en: "Published the self-contained Windows x64 RC.4 engineering prerelease. Its release gate recorded 143 tests with 0 failures, Ruff passed, and the x64 Release build completed with 0 warnings and 0 errors; user acceptance and scientific validation remain pending.",
+      zh: "已发布自包含的 Windows x64 RC.4 工程预发布版本。发布门记录 143 项测试、0 项失败，Ruff 通过，x64 Release 构建为 0 警告、0 错误；用户验收与科学验证仍待完成。",
+    },
+    technologies: [
+      "WinUI 3",
+      ".NET 10",
+      "Python 3.11",
+      "SQLite",
+      "Bayesian Network",
+      "JSON-RPC",
+    ],
+    repositoryUrl: "https://github.com/Foreverlongdamai/pilot-assessment-AI-system",
+    featured: true,
+  },
+  {
     slug: "underwater-fouling-detection",
     title: { en: "Underwater Fouling Detection", zh: "水下附着物检测" },
     category: { en: "Computer Vision / Industrial AI", zh: "计算机视觉 / 工业 AI" },

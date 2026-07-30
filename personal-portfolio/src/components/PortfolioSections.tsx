@@ -2,6 +2,7 @@
 
 import {
   ArrowUp,
+  ArrowUpRight,
   Award as AwardIcon,
   Bot,
   Boxes,
@@ -9,7 +10,7 @@ import {
   CarFront,
   CodeXml,
   Eye,
-  Factory,
+  FolderGit2,
   GraduationCap,
   Mail,
   Phone,
@@ -33,8 +34,8 @@ import { getLocalizedText } from "@/content/types";
 import { useLanguage } from "./LanguageProvider";
 import { Section } from "./Section";
 
-const researchIcons: LucideIcon[] = [Bot, Workflow, Factory];
-const projectIcons: LucideIcon[] = [Ship, CarFront, ShoppingCart];
+const researchIcons: LucideIcon[] = [Bot, Workflow];
+const projectIcons: LucideIcon[] = [BrainCircuit, Ship, CarFront, ShoppingCart];
 const skillIcons: LucideIcon[] = [Eye, Boxes, CodeXml, BrainCircuit];
 
 function findSection(id: string) {
@@ -60,7 +61,7 @@ export function PortfolioSections() {
           </div>
           <div className="metrics-grid">
             <div>
-              <strong>3</strong>
+              <strong>{projects.length}</strong>
               <span>{locale === "en" ? "project tracks" : "项目方向"}</span>
             </div>
             <div>
@@ -68,15 +69,15 @@ export function PortfolioSections() {
               <span>{locale === "en" ? "M.S. graduation" : "硕士预计毕业"}</span>
             </div>
             <div>
-              <strong>VLA</strong>
-              <span>{locale === "en" ? "research interest" : "研究兴趣"}</span>
+              <strong>2</strong>
+              <span>{locale === "en" ? "research fields" : "研究领域"}</span>
             </div>
           </div>
         </div>
       </Section>
 
       <Section section={findSection("research")} locale={locale} className="section-muted">
-        <div className="card-grid">
+        <div className="card-grid research-card-grid">
           {researchAreas.map((area, index) => {
             const AreaIcon = researchIcons[index] ?? Bot;
 
@@ -131,6 +132,18 @@ export function PortfolioSections() {
                   <span key={technology}>{technology}</span>
                 ))}
               </div>
+              {project.repositoryUrl ? (
+                <a
+                  className="project-repository-link"
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FolderGit2 aria-hidden="true" size={17} />
+                  {locale === "en" ? "GitHub Repository" : "查看 GitHub 仓库"}
+                  <ArrowUpRight aria-hidden="true" size={16} />
+                </a>
+              ) : null}
             </article>
             );
           })}

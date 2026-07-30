@@ -38,6 +38,7 @@ export type Project = {
   work: LocalizedText;
   impact: LocalizedText;
   technologies: string[];
+  repositoryUrl?: string;
   featured?: boolean;
 };
 

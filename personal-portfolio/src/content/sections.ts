@@ -13,17 +13,20 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: { en: "Profile", zh: "个人简介" },
     title: { en: "A practical builder with a research-driven direction", zh: "以研究方向驱动工程实践" },
     description: {
-      en: "My current path connects computer vision, simulation, and embodied intelligence. I value systems that can be explained clearly, tested in realistic scenarios, and improved through engineering iteration.",
-      zh: "我的当前方向连接计算机视觉、仿真系统与具身智能。我重视那些能够被清晰解释、在真实场景中验证，并通过工程迭代持续优化的系统。",
+      en: "My current path connects embodied intelligence, eVTOL pilot training assessment, computer vision, and simulation. I value systems that can be explained clearly, tested in realistic scenarios, and improved through engineering iteration.",
+      zh: "我的当前方向连接具身智能、eVTOL 飞行员训练评估、计算机视觉与仿真系统。我重视能够被清晰解释、在真实场景中验证，并通过工程迭代持续优化的系统。",
     },
   },
   {
     id: "research",
-    eyebrow: { en: "Research Direction", zh: "研究方向" },
-    title: { en: "Embodied intelligence, VLA models, and real-world agents", zh: "具身智能、VLA 模型与现实智能体" },
+    eyebrow: { en: "Research Fields", zh: "研究领域" },
+    title: {
+      en: "Embodied Intelligence & eVTOL Pilot Training Effectiveness",
+      zh: "具身智能与 eVTOL 飞行员训练有效性",
+    },
     description: {
-      en: "I am interested in how large models can understand agents, environments, and tasks through multimodal information, then produce reliable plans and actions.",
-      zh: "我关注大模型如何通过多模态信息理解智能体自身、环境和任务，并进一步生成可靠的规划与动作。",
+      en: "My research connects intelligent agents that understand environments and tasks with interpretable, evidence-based methods for assessing pilot performance in multimodal VR flight training.",
+      zh: "我的研究一方面关注能够理解环境与任务的智能体，另一方面探索面向多模态 VR 飞行训练的可解释、证据驱动飞行员表现评估方法。",
     },
   },
   {
@@ -31,8 +34,8 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: { en: "Selected Work", zh: "代表项目" },
     title: { en: "Projects that connect AI methods with usable systems", zh: "连接 AI 方法与可用系统的项目" },
     description: {
-      en: "These projects show my experience with detection, segmentation, simulation, and web development. More detailed case studies can be added later.",
-      zh: "这些项目展示了我在检测、分割、仿真和 Web 开发方面的实践经历。后续可以继续补充更完整的项目详情页。",
+      en: "These projects show my experience with interpretable multimodal assessment, detection, segmentation, simulation, and web development.",
+      zh: "这些项目展示了我在可解释多模态评估、检测、分割、仿真和 Web 开发方面的实践经历。",
     },
   },
   {
@@ -76,8 +79,8 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: { en: "Contact", zh: "联系" },
     title: { en: "Open to internships, research, and collaboration", zh: "欢迎实习、研究与项目合作交流" },
     description: {
-      en: "The easiest way to reach me is by email. This section can later include GitHub, LinkedIn, Google Scholar, or project demos.",
-      zh: "目前最方便的联系方式是邮箱。后续这里可以继续加入 GitHub、LinkedIn、Google Scholar 或项目 Demo 链接。",
+      en: "The easiest way to reach me is by email. Repository links for open-source work are included with the corresponding projects above.",
+      zh: "目前最方便的联系方式是邮箱。开源项目的仓库链接已附在上方对应的项目介绍中。",
     },
   },
 ];
@@ -92,20 +95,15 @@ export const researchAreas: ResearchArea[] = [
     keywords: ["agents", "planning", "multimodal learning"],
   },
   {
-    title: { en: "Vision-Language-Action Models", zh: "视觉-语言-动作模型" },
-    description: {
-      en: "Exploring how visual perception and language reasoning can be connected to action generation and control.",
-      zh: "探索视觉感知和语言推理如何进一步连接到动作生成与控制。",
+    title: {
+      en: "eVTOL Pilot Training Effectiveness",
+      zh: "eVTOL 飞行员训练有效性",
     },
-    keywords: ["VLA", "robot policy", "large models"],
-  },
-  {
-    title: { en: "Industrial AI Applications", zh: "工业 AI 应用" },
     description: {
-      en: "Applying detection, segmentation, and simulation methods to practical scenarios where reliability and deployment matter.",
-      zh: "将检测、分割与仿真方法应用到强调可靠性和部署价值的实际场景中。",
+      en: "Developing interpretable, evidence-based methods that connect multimodal VR flight behavior to traceable skill assessment and training feedback.",
+      zh: "开发可解释、证据驱动的方法，把多模态 VR 飞行行为连接到可追溯的技能评估与训练反馈。",
     },
-    keywords: ["deployment", "computer vision", "simulation"],
+    keywords: ["multimodal assessment", "Bayesian networks", "VR flight training"],
   },
 ];
 
@@ -151,8 +149,8 @@ export const education: TimelineItem[] = [
       zh: "山东科技大学",
     },
     description: {
-      en: "Graduate study focused toward computer science, intelligent systems, and embodied intelligence research interests.",
-      zh: "研究生阶段聚焦计算机科学、智能系统以及具身智能相关研究兴趣。",
+      en: "Graduate study focused on computer science, intelligent systems, embodied intelligence, and eVTOL pilot training effectiveness.",
+      zh: "研究生阶段聚焦计算机科学、智能系统、具身智能与 eVTOL 飞行员训练有效性。",
     },
   },
   {
@@ -200,7 +198,7 @@ export const skillGroups: SkillGroup[] = [
     skills: ["Next.js", "React", "TypeScript", "Vue", "Spring Boot"],
   },
   {
-    title: { en: "Research Interests", zh: "研究兴趣" },
-    skills: ["Embodied Intelligence", "VLA Models", "Planning", "Multimodal Systems"],
+    title: { en: "Research Fields", zh: "研究领域" },
+    skills: ["Embodied Intelligence", "eVTOL Pilot Training Effectiveness"],
   },
 ];

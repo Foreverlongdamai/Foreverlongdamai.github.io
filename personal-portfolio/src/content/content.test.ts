@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { siteContent } from "./site";
 import { projects } from "./projects";
-import { portfolioSections } from "./sections";
+import { portfolioSections, researchAreas, skillGroups } from "./sections";
 import { getLocalizedText, isLocale } from "./types";
 
 describe("localized content model", () => {
@@ -46,5 +46,54 @@ describe("localized content model", () => {
       expect(project.work.zh.length).toBeGreaterThan(10);
       expect(project.technologies.length).toBeGreaterThan(0);
     }
+  });
+
+  it("uses the two current research fields across the profile and research section", () => {
+    expect(siteContent.profile.focus).toEqual([
+      { en: "Embodied Intelligence", zh: "具身智能" },
+      {
+        en: "eVTOL Pilot Training Effectiveness",
+        zh: "eVTOL 飞行员训练有效性",
+      },
+    ]);
+
+    const researchSection = portfolioSections.find((section) => section.id === "research");
+    expect(researchSection?.eyebrow).toEqual({ en: "Research Fields", zh: "研究领域" });
+    expect(researchAreas.map((area) => area.title.en)).toEqual([
+      "Embodied Intelligence",
+      "eVTOL Pilot Training Effectiveness",
+    ]);
+
+    const researchSkillGroup = skillGroups.find(
+      (group) => group.title.en === "Research Fields",
+    );
+    expect(researchSkillGroup?.title.zh).toBe("研究领域");
+    expect(researchSkillGroup?.skills).toEqual([
+      "Embodied Intelligence",
+      "eVTOL Pilot Training Effectiveness",
+    ]);
+  });
+
+  it("features the pilot assessment system with its public GitHub repository", () => {
+    const pilotProject = projects.find(
+      (project) => project.slug === "pilot-assessment-ai-system",
+    );
+
+    expect(projects).toHaveLength(4);
+    expect(projects[0]?.slug).toBe("pilot-assessment-ai-system");
+    expect(pilotProject).toBeDefined();
+
+    if (!pilotProject) {
+      return;
+    }
+
+    expect(pilotProject.title.en).toBe(
+      "AI-Based System for Evaluating eVTOL Pilot Training Effectiveness",
+    );
+    expect(Reflect.get(pilotProject, "repositoryUrl")).toBe(
+      "https://github.com/Foreverlongdamai/pilot-assessment-AI-system",
+    );
+    expect(pilotProject.impact.en).toContain("engineering prerelease");
+    expect(pilotProject.impact.zh).toContain("工程预发布");
   });
 });
