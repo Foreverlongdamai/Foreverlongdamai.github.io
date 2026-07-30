@@ -2,8 +2,8 @@
 
 Date: 2026-07-30
 Project: `D:\A_personal_proj\personal-portfolio`
-Revision: 2 — replaces the approved three-card AI viewpoint design
-Status: Approved content design; implementation pending written-spec review
+Revision: 3 — replaces the approved three-card design and simplifies the final title
+Status: Implemented; minor title revision approved
 
 ## 1. Goal
 
@@ -78,8 +78,8 @@ Eyebrow:
 
 Title:
 
-- English: `From Codex and Claude Code to AI-Native Delivery`
-- Chinese: `从 Codex 与 Claude Code 到 AI 原生交付`
+- English: `My AI Agent Practice: From Requirements to Delivery`
+- Chinese: `我的 AI Agent 实践：从需求到交付`
 
 Description:
 

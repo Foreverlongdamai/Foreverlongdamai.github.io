@@ -50,8 +50,8 @@ it("presents the approved bilingual AI Agent practice narrative", () => {
     id: "thoughts",
     eyebrow: { en: "AI Agent Experience", zh: "AI Agent 实践经历" },
     title: {
-      en: "From Codex and Claude Code to AI-Native Delivery",
-      zh: "从 Codex 与 Claude Code 到 AI 原生交付",
+      en: "My AI Agent Practice: From Requirements to Delivery",
+      zh: "我的 AI Agent 实践：从需求到交付",
     },
     description: {
       en: "Deep, hands-on experience using AI agents to turn requirements into working systems.",
@@ -78,7 +78,7 @@ it("renders AI Agent experience as one continuous narrative", () => {
   );
 
   expect(markup).toContain('id="thoughts"');
-  expect(markup).toContain("From Codex and Claude Code to AI-Native Delivery");
+  expect(markup).toContain("My AI Agent Practice: From Requirements to Delivery");
   expect(markup).toContain("approximately 10 billion tokens");
   expect(markup).toContain('class="lead-panel ai-agent-practice-panel"');
   expect(markup).not.toContain('class="thought-list"');
@@ -124,8 +124,8 @@ In `src/content/sections.ts`, replace the object whose `id` is `thoughts` with:
   id: "thoughts",
   eyebrow: { en: "AI Agent Experience", zh: "AI Agent 实践经历" },
   title: {
-    en: "From Codex and Claude Code to AI-Native Delivery",
-    zh: "从 Codex 与 Claude Code 到 AI 原生交付",
+    en: "My AI Agent Practice: From Requirements to Delivery",
+    zh: "我的 AI Agent 实践：从需求到交付",
   },
   description: {
     en: "Deep, hands-on experience using AI agents to turn requirements into working systems.",
@@ -223,7 +223,7 @@ Expected: no existing listener is displaced, and the final command returns the b
 Use a fresh Playwright session to confirm:
 
 - navigation reads `AI Practice / AI 实践`;
-- heading reads `From Codex and Claude Code to AI-Native Delivery / 从 Codex 与 Claude Code 到 AI 原生交付`;
+- heading reads `My AI Agent Practice: From Requirements to Delivery / 我的 AI Agent 实践：从需求到交付`;
 - the section contains exactly one `.ai-agent-practice-panel` and no `.thought-list` or `.thought-item`;
 - the English copy contains `approximately 10 billion tokens` and the Chinese copy contains `约 100 亿 token`;
 - `document.body.scrollWidth === document.documentElement.clientWidth`;
