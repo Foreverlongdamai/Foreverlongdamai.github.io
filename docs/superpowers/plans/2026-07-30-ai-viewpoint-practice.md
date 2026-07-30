@@ -1,10 +1,10 @@
-# AI Viewpoint and Practice Section Implementation Plan
+# AI Agent Practice Narrative Section Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Replace the portfolio's embodied-intelligence thought content with the approved bilingual AI viewpoint and AI-native practice narrative, then deploy it to GitHub Pages.
+**Goal:** Replace the portfolio's three numbered AI-view cards with one bilingual, continuous account of Mai Long's AI Agent practice and deploy the verified result to GitHub Pages.
 
-**Architecture:** Keep the existing `thoughts` anchor, `Thought` type, three-card renderer, and responsive layout. Change only typed content plus focused content-model tests; verify the existing component renders the longer copy correctly before deploying from `main`.
+**Architecture:** Preserve the public `#thoughts` anchor and the existing responsive `Section` shell. Replace the `Thought[]` content model with one `LocalizedText` narrative, render it in the existing `lead-panel` visual language, and protect the exact bilingual copy and non-card structure with focused Vitest tests.
 
 **Tech Stack:** Next.js 16, React 19, TypeScript, Vitest, ESLint, Playwright CLI, GitHub Actions, GitHub Pages
 
@@ -12,234 +12,183 @@
 
 ## File Map
 
-- Modify: `personal-portfolio/src/content/site.ts` — short bilingual navigation label.
-- Modify: `personal-portfolio/src/content/sections.ts` — section heading, summary, and three bilingual cards.
-- Modify: `personal-portfolio/src/content/content.test.ts` — exact approved-content regression test.
-- Reference only: `personal-portfolio/src/components/PortfolioSections.tsx` — existing three-card renderer.
-- Reference only: `personal-portfolio/src/components/Section.tsx` — existing responsive section shell.
-- Reference only: `personal-portfolio/src/app/globals.css` — existing thought-card styling.
+- Modify: `personal-portfolio/src/content/site.ts` - rename the visible navigation label while preserving the `thoughts` ID.
+- Modify: `personal-portfolio/src/content/sections.ts` - replace the section heading and three-card array with one bilingual narrative.
+- Modify: `personal-portfolio/src/components/PortfolioSections.tsx` - render one semantic narrative article instead of a numbered list.
+- Modify: `personal-portfolio/src/content/content.test.ts` - lock the exact navigation, heading, attribution, and bilingual narrative.
+- Modify: `personal-portfolio/src/components/PortfolioSections.test.tsx` - lock the continuous panel and reject the old card structure.
+- Reference only: `personal-portfolio/src/app/globals.css` - reuse `lead-panel`; change CSS only if browser QA identifies a concrete defect.
+- Reference only: `personal-portfolio/src/components/Section.tsx` - preserve the desktop two-column and mobile single-column section shell.
+- Do not modify: `C:\Users\long\Desktop\CV_MaiLong_Updated.docx` or any other DOCX file.
 
-### Task 1: Add the Failing Approved-Content Test
+### Task 1: Add Failing Content and Rendering Tests
 
 **Files:**
 - Modify: `personal-portfolio/src/content/content.test.ts`
-- Test: `personal-portfolio/src/content/content.test.ts`
+- Modify: `personal-portfolio/src/components/PortfolioSections.test.tsx`
+- Test: both files above
 
-- [ ] **Step 1: Import `thoughts` into the content test**
+- [ ] **Step 1: Replace the old three-card content assertion**
 
-Replace the existing sections import with:
-
-```ts
-import {
-  portfolioSections,
-  researchAreas,
-  skillGroups,
-  thoughts,
-} from "./sections";
-```
-
-- [ ] **Step 2: Add the exact approved-content test**
-
-Add this test inside `describe("localized content model", ...)`:
+In `src/content/content.test.ts`, remove `thoughts` from the named import and replace the test named `presents the approved bilingual AI viewpoint and practice narrative` with:
 
 ```ts
-it("presents the approved bilingual AI viewpoint and practice narrative", () => {
-  const thoughtSection = portfolioSections.find((section) => section.id === "thoughts");
+it("presents the approved bilingual AI Agent practice narrative", () => {
+  const practiceSection = portfolioSections.find(
+    (section) => section.id === "thoughts",
+  );
+  const narrative = Reflect.get(
+    sectionContent,
+    "aiAgentPracticeNarrative",
+  );
 
   expect(siteContent.navigation).toContainEqual({
     id: "thoughts",
-    label: { en: "AI Views", zh: "AI 观点" },
+    label: { en: "AI Practice", zh: "AI 实践" },
   });
-  expect(thoughtSection).toEqual({
+  expect(practiceSection).toEqual({
     id: "thoughts",
-    eyebrow: { en: "AI Viewpoint & Practice", zh: "AI 观点与实践" },
+    eyebrow: { en: "AI Agent Experience", zh: "AI Agent 实践经历" },
     title: {
-      en: "My Perspective on AI and How I Put It into Practice",
-      zh: "我对当前 AI 领域的看法与实践",
+      en: "From Codex and Claude Code to AI-Native Delivery",
+      zh: "从 Codex 与 Claude Code 到 AI 原生交付",
     },
     description: {
-      en: "I see AI as a highly efficient execution partner. When an idea is well developed and expressed through clear specifications or dialogue, AI can turn it into a working result quickly and accurately. My role is to understand the real requirement, structure it into tasks AI can reliably interpret, and verify the outcome.",
-      zh: "我认为 AI 是高效率的执行伙伴。当一个想法足够完善，并通过清晰的规格文档或沟通描述表达出来时，AI 可以快速、准确地将其实现。我的作用是理解真实需求，将其组织为 AI 能够可靠理解的任务，并验证最终成果。",
+      en: "Deep, hands-on experience using AI agents to turn requirements into working systems.",
+      zh: "以 AI Agent 为核心，把需求转化为可运行系统的深度实践。",
     },
   });
-  expect(thoughts).toEqual([
-    {
-      title: {
-        en: "Clear Ideas Determine Implementation Quality",
-        zh: "清晰的想法决定实现质量",
-      },
-      body: {
-        en: "AI performs best when goals, context, constraints, and acceptance criteria are explicit. I use specifications, structured documents, and iterative dialogue to turn ideas into executable task descriptions.",
-        zh: "当目标、背景、约束和验收标准足够明确时，AI 能发挥出最佳效果。我通过规格文档、结构化说明和迭代沟通，把想法整理成可执行的任务描述。",
-      },
-    },
-    {
-      title: {
-        en: "Translating Requirements into AI-Ready Specifications",
-        zh: "把需求转化为 AI 可理解的规格",
-      },
-      body: {
-        en: "I quickly understand requirements through documents and conversation, resolve ambiguity, and translate them into context, tasks, interfaces, checkpoints, and delivery criteria that AI agents can follow accurately.",
-        zh: "我能够通过文档和沟通快速理解需求、消除歧义，并将其转化为 AI Agent 可准确执行的上下文、任务、接口、检查点与交付标准。",
-      },
-    },
-    {
-      title: {
-        en: "Deep, Hands-On AI Agent Practice",
-        zh: "深度 AI Agent 实践",
-      },
-      body: {
-        en: "Many of my projects now use AI-native workflows. I am a long-term, high-frequency user of GPT and Claude; across two ChatGPT accounts, cumulative usage is approximately 10 billion tokens. I am proficient with AI agent tools for research, coding, debugging, documentation, and end-to-end project delivery.",
-        zh: "我的许多项目采用 AI 原生工作流完成。我是 GPT 与 Claude 的长期高频深度用户，两个 ChatGPT 账号累计使用约 100 亿 token，并熟练使用多类 AI Agent 工具完成研究、编程、调试、文档与端到端项目交付。",
-      },
-    },
-  ]);
+  expect(narrative).toEqual({
+    en: "I am a long-term, intensive user of Codex and Claude Code, and my cumulative usage across two ChatGPT accounts is approximately 10 billion tokens. Many of my current projects are delivered through AI-agent-centered workflows spanning requirements analysis, specification design, implementation, debugging, testing, documentation, and final delivery. Through sustained practice, I have become convinced that the speed and accuracy of AI depend heavily on how complete the idea it receives is: when goals, context, constraints, and acceptance criteria are clear and organized through specifications or continued dialogue into context the model can understand, AI can turn ideas into working results with remarkable speed. My advantage is not simply proficiency with the tools; it is the ability to understand real requirements quickly from documents and communication, identify and resolve ambiguity, translate requirements into executable specifications for agents, and continuously verify and steer the implementation until the project is delivered accurately and efficiently.",
+    zh: "我长期深度使用 Codex 与 Claude Code，并在两个 ChatGPT 账号中累计使用约 100 亿 token。如今，我的许多项目都通过以 AI Agent 为核心的工作流完成，覆盖需求分析、规格设计、代码实现、调试、测试、文档与最终交付。在持续实践中，我越来越确信，AI 的实现效率和准确性高度取决于输入想法的完整度：当目标、背景、约束和验收标准足够清晰，并通过规格文档或持续沟通组织为 AI 能够理解的上下文时，AI 可以非常迅速地把想法转化为可运行成果。我的优势不只是熟练使用工具，而是能够从文档和沟通中快速理解真实需求、识别并消除歧义、把需求转化为 Agent 可执行的规格，并在实现过程中持续验证结果、修正方向，最终推动项目准确、高效地落地。",
+  });
 });
 ```
 
-- [ ] **Step 3: Run the targeted test and verify RED**
+- [ ] **Step 2: Add a structural rendering regression test**
+
+Append this test to `src/components/PortfolioSections.test.tsx`:
+
+```tsx
+it("renders AI Agent experience as one continuous narrative", () => {
+  const markup = renderToStaticMarkup(
+    <LanguageProvider>
+      <PortfolioSections />
+    </LanguageProvider>,
+  );
+
+  expect(markup).toContain('id="thoughts"');
+  expect(markup).toContain("From Codex and Claude Code to AI-Native Delivery");
+  expect(markup).toContain("approximately 10 billion tokens");
+  expect(markup).toContain('class="lead-panel ai-agent-practice-panel"');
+  expect(markup).not.toContain('class="thought-list"');
+  expect(markup).not.toContain('class="thought-item"');
+  expect(markup).not.toContain("Clear Ideas Determine Implementation Quality");
+});
+```
+
+- [ ] **Step 3: Run the targeted tests and verify RED**
 
 Run:
 
 ```powershell
 Set-Location 'D:\A_personal_proj\personal-portfolio'
-npm test -- src/content/content.test.ts
+npm test -- src/content/content.test.ts src/components/PortfolioSections.test.tsx
 ```
 
-Expected: one new test fails because the navigation still contains
-`Thoughts / 观点` and the section still contains the embodied-intelligence copy.
-The command must fail on an assertion, not on a syntax or import error.
+Expected: the test command runs successfully but the new assertions fail because the current page still exposes `AI Views`, the three-card copy, and `.thought-list` / `.thought-item` markup.
 
-### Task 2: Replace the Bilingual Content and Reach GREEN
+### Task 2: Replace the Content Model and Renderer
 
 **Files:**
 - Modify: `personal-portfolio/src/content/site.ts`
 - Modify: `personal-portfolio/src/content/sections.ts`
+- Modify: `personal-portfolio/src/components/PortfolioSections.tsx`
 - Test: `personal-portfolio/src/content/content.test.ts`
+- Test: `personal-portfolio/src/components/PortfolioSections.test.tsx`
 
-- [ ] **Step 1: Update the navigation label**
+- [ ] **Step 1: Rename the navigation item**
 
-In `siteContent.navigation`, replace the `thoughts` entry with:
+In `src/content/site.ts`, replace only the `thoughts` navigation entry with:
 
 ```ts
-{ id: "thoughts", label: { en: "AI Views", zh: "AI 观点" } },
+{ id: "thoughts", label: { en: "AI Practice", zh: "AI 实践" } },
 ```
 
-- [ ] **Step 2: Replace the `thoughts` section heading**
+- [ ] **Step 2: Replace the section heading**
 
-In `portfolioSections`, replace the object whose `id` is `thoughts` with:
+In `src/content/sections.ts`, replace the object whose `id` is `thoughts` with:
 
 ```ts
 {
   id: "thoughts",
-  eyebrow: { en: "AI Viewpoint & Practice", zh: "AI 观点与实践" },
+  eyebrow: { en: "AI Agent Experience", zh: "AI Agent 实践经历" },
   title: {
-    en: "My Perspective on AI and How I Put It into Practice",
-    zh: "我对当前 AI 领域的看法与实践",
+    en: "From Codex and Claude Code to AI-Native Delivery",
+    zh: "从 Codex 与 Claude Code 到 AI 原生交付",
   },
   description: {
-    en: "I see AI as a highly efficient execution partner. When an idea is well developed and expressed through clear specifications or dialogue, AI can turn it into a working result quickly and accurately. My role is to understand the real requirement, structure it into tasks AI can reliably interpret, and verify the outcome.",
-    zh: "我认为 AI 是高效率的执行伙伴。当一个想法足够完善，并通过清晰的规格文档或沟通描述表达出来时，AI 可以快速、准确地将其实现。我的作用是理解真实需求，将其组织为 AI 能够可靠理解的任务，并验证最终成果。",
+    en: "Deep, hands-on experience using AI agents to turn requirements into working systems.",
+    zh: "以 AI Agent 为核心，把需求转化为可运行系统的深度实践。",
   },
 },
 ```
 
-- [ ] **Step 3: Replace the three `thoughts` cards**
+- [ ] **Step 3: Replace `Thought[]` with one localized narrative**
 
-Replace the complete `export const thoughts: Thought[]` array with:
+In the type import at the top of `src/content/sections.ts`, remove `Thought` and add `LocalizedText`. Replace the complete `export const thoughts` declaration with:
 
 ```ts
-export const thoughts: Thought[] = [
-  {
-    title: {
-      en: "Clear Ideas Determine Implementation Quality",
-      zh: "清晰的想法决定实现质量",
-    },
-    body: {
-      en: "AI performs best when goals, context, constraints, and acceptance criteria are explicit. I use specifications, structured documents, and iterative dialogue to turn ideas into executable task descriptions.",
-      zh: "当目标、背景、约束和验收标准足够明确时，AI 能发挥出最佳效果。我通过规格文档、结构化说明和迭代沟通，把想法整理成可执行的任务描述。",
-    },
-  },
-  {
-    title: {
-      en: "Translating Requirements into AI-Ready Specifications",
-      zh: "把需求转化为 AI 可理解的规格",
-    },
-    body: {
-      en: "I quickly understand requirements through documents and conversation, resolve ambiguity, and translate them into context, tasks, interfaces, checkpoints, and delivery criteria that AI agents can follow accurately.",
-      zh: "我能够通过文档和沟通快速理解需求、消除歧义，并将其转化为 AI Agent 可准确执行的上下文、任务、接口、检查点与交付标准。",
-    },
-  },
-  {
-    title: {
-      en: "Deep, Hands-On AI Agent Practice",
-      zh: "深度 AI Agent 实践",
-    },
-    body: {
-      en: "Many of my projects now use AI-native workflows. I am a long-term, high-frequency user of GPT and Claude; across two ChatGPT accounts, cumulative usage is approximately 10 billion tokens. I am proficient with AI agent tools for research, coding, debugging, documentation, and end-to-end project delivery.",
-      zh: "我的许多项目采用 AI 原生工作流完成。我是 GPT 与 Claude 的长期高频深度用户，两个 ChatGPT 账号累计使用约 100 亿 token，并熟练使用多类 AI Agent 工具完成研究、编程、调试、文档与端到端项目交付。",
-    },
-  },
-];
+export const aiAgentPracticeNarrative: LocalizedText = {
+  en: "I am a long-term, intensive user of Codex and Claude Code, and my cumulative usage across two ChatGPT accounts is approximately 10 billion tokens. Many of my current projects are delivered through AI-agent-centered workflows spanning requirements analysis, specification design, implementation, debugging, testing, documentation, and final delivery. Through sustained practice, I have become convinced that the speed and accuracy of AI depend heavily on how complete the idea it receives is: when goals, context, constraints, and acceptance criteria are clear and organized through specifications or continued dialogue into context the model can understand, AI can turn ideas into working results with remarkable speed. My advantage is not simply proficiency with the tools; it is the ability to understand real requirements quickly from documents and communication, identify and resolve ambiguity, translate requirements into executable specifications for agents, and continuously verify and steer the implementation until the project is delivered accurately and efficiently.",
+  zh: "我长期深度使用 Codex 与 Claude Code，并在两个 ChatGPT 账号中累计使用约 100 亿 token。如今，我的许多项目都通过以 AI Agent 为核心的工作流完成，覆盖需求分析、规格设计、代码实现、调试、测试、文档与最终交付。在持续实践中，我越来越确信，AI 的实现效率和准确性高度取决于输入想法的完整度：当目标、背景、约束和验收标准足够清晰，并通过规格文档或持续沟通组织为 AI 能够理解的上下文时，AI 可以非常迅速地把想法转化为可运行成果。我的优势不只是熟练使用工具，而是能够从文档和沟通中快速理解真实需求、识别并消除歧义、把需求转化为 Agent 可执行的规格，并在实现过程中持续验证结果、修正方向，最终推动项目准确、高效地落地。",
+};
 ```
 
-- [ ] **Step 4: Run the targeted test and verify GREEN**
+The token statement remains explicitly attributed to the two ChatGPT accounts and must not be rewritten as combined Codex/Claude Code usage.
+
+- [ ] **Step 4: Render one semantic article**
+
+In `src/components/PortfolioSections.tsx`, import `aiAgentPracticeNarrative` instead of `thoughts` and replace the complete `thought-list` block with:
+
+```tsx
+<Section section={findSection("thoughts")} locale={locale}>
+  <article className="lead-panel ai-agent-practice-panel">
+    <p>{getLocalizedText(aiAgentPracticeNarrative, locale)}</p>
+  </article>
+</Section>
+```
+
+- [ ] **Step 5: Run the targeted tests and verify GREEN**
 
 Run:
 
 ```powershell
-Set-Location 'D:\A_personal_proj\personal-portfolio'
-npm test -- src/content/content.test.ts
-```
-
-Expected: `src/content/content.test.ts` passes with all tests green.
-
-- [ ] **Step 5: Run the complete test suite**
-
-Run:
-
-```powershell
-npm test
+npm test -- src/content/content.test.ts src/components/PortfolioSections.test.tsx
 ```
 
 Expected: both test files pass with zero failures.
 
-- [ ] **Step 6: Commit the content change**
+- [ ] **Step 6: Inspect the source diff before broader verification**
 
 Run:
 
 ```powershell
 Set-Location 'D:\A_personal_proj'
-git add -- personal-portfolio/src/content/content.test.ts personal-portfolio/src/content/site.ts personal-portfolio/src/content/sections.ts
-git diff --cached --check
-git commit -m "Rewrite AI viewpoint and practice section"
+git diff --check
+git diff -- personal-portfolio/src/content/site.ts personal-portfolio/src/content/sections.ts personal-portfolio/src/components/PortfolioSections.tsx personal-portfolio/src/content/content.test.ts personal-portfolio/src/components/PortfolioSections.test.tsx
 ```
 
-Expected: one commit containing only the content test and the two typed content
-files.
+Expected: no whitespace errors; the diff is limited to the approved content, renderer, and regression tests. No DOCX file appears in `git status` or the diff.
 
-### Task 3: Run Static and Browser Quality Gates
+### Task 3: Run Static and Local Browser Quality Gates
 
 **Files:**
-- Reference: `personal-portfolio/src/components/PortfolioSections.tsx`
-- Reference: `personal-portfolio/src/components/Section.tsx`
-- Reference: `personal-portfolio/src/app/globals.css`
 - Verify: all files changed in Tasks 1 and 2
+- Reference: `personal-portfolio/src/app/globals.css`
+- Reference: `personal-portfolio/src/components/Section.tsx`
 
-- [ ] **Step 1: Fetch the current web-interface guidelines and review the affected rendering path**
-
-Fetch:
-
-```text
-https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md
-```
-
-Review `PortfolioSections.tsx`, `Section.tsx`, and the `.thought-*` /
-`.section-heading` rules in `globals.css`. Expected: the content-only change
-does not introduce a new accessibility or interaction issue; any finding must
-be reported as `file:line` before deciding whether it is in scope.
-
-- [ ] **Step 2: Run all static quality gates**
+- [ ] **Step 1: Run the complete automated quality gates**
 
 Run from `D:\A_personal_proj\personal-portfolio`:
 
@@ -250,20 +199,13 @@ npx tsc --noEmit
 npm run build
 ```
 
-Expected: zero test failures, zero ESLint errors, zero TypeScript errors, and a
-successful static Next.js production build in `out/`.
+Expected: zero Vitest failures, zero ESLint errors, zero TypeScript errors, and a successful static Next.js build in `out/`.
 
-- [ ] **Step 3: Verify the Playwright prerequisite**
+- [ ] **Step 2: Review the affected UI against the web design guidelines**
 
-Run:
+Review the new section and its existing `Section` / `lead-panel` styles for semantic markup, readable measure, responsive behavior, contrast, text wrapping, and motion/accessibility regressions. CSS remains unchanged unless an observed desktop or mobile defect requires a narrowly scoped fix.
 
-```powershell
-Get-Command npx.cmd -ErrorAction Stop
-```
-
-Expected: an `npx.cmd` path is returned.
-
-- [ ] **Step 4: Start the static build with a validated local server process**
+- [ ] **Step 3: Start the production build on an unused local port**
 
 Run after confirming port 4173 is free:
 
@@ -274,162 +216,66 @@ $webProcess = Start-Process -FilePath $pythonExe -ArgumentList '-m','http.server
 $webProcess.Id
 ```
 
-Expected: the first command returns no listener and the final command returns
-the Python server PID.
+Expected: no existing listener is displaced, and the final command returns the bundled Python server PID.
 
-- [ ] **Step 5: Inspect English and Chinese at 1440 x 1000**
+- [ ] **Step 4: Verify English and Chinese at 1440 x 1000**
 
-Run with a named Playwright CLI session and derive the language-button ref from
-the required fresh snapshot:
+Use a fresh Playwright session to confirm:
 
-```powershell
-$pw = (Get-Command npx.cmd -ErrorAction Stop).Source
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint open http://127.0.0.1:4173/
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint resize 1440 1000
-$englishSnapshot = & $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint snapshot
-$englishSnapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint eval "() => ({ exactTitle: document.body.innerText.includes('My Perspective on AI and How I Put It into Practice'), exactCards: ['Clear Ideas Determine Implementation Quality', 'Translating Requirements into AI-Ready Specifications', 'Deep, Hands-On AI Agent Practice'].every((text) => document.body.innerText.includes(text)), exactUsage: document.body.innerText.includes('approximately 10 billion tokens'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint console
-$zhRef = [regex]::Match(($englishSnapshot -join "`n"), 'button "中文".*\[ref=(e\d+)\]').Groups[1].Value
-if (-not $zhRef) { throw 'Chinese language button ref not found in fresh snapshot' }
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint click $zhRef
-$chineseSnapshot = & $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint snapshot
-$chineseSnapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint eval "() => ({ exactTitle: document.body.innerText.includes('我对当前 AI 领域的看法与实践'), exactCards: ['清晰的想法决定实现质量', '把需求转化为 AI 可理解的规格', '深度 AI Agent 实践'].every((text) => document.body.innerText.includes(text)), exactUsage: document.body.innerText.includes('约 100 亿 token'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-```
+- navigation reads `AI Practice / AI 实践`;
+- heading reads `From Codex and Claude Code to AI-Native Delivery / 从 Codex 与 Claude Code 到 AI 原生交付`;
+- the section contains exactly one `.ai-agent-practice-panel` and no `.thought-list` or `.thought-item`;
+- the English copy contains `approximately 10 billion tokens` and the Chinese copy contains `约 100 亿 token`;
+- `document.body.scrollWidth === document.documentElement.clientWidth`;
+- the browser console has no error or warning introduced by the change.
 
-Expected: every boolean is `true`; both snapshots contain the approved summary
-and card bodies; the console contains zero errors or warnings.
+- [ ] **Step 5: Verify English and Chinese at 390 x 844**
 
-- [ ] **Step 6: Inspect English and Chinese at 390 x 844**
+Resize the same local production build to 390 x 844 and repeat the content, structure, horizontal-overflow, and console checks. Visually inspect screenshots in both languages, confirming that the title and long paragraph wrap naturally, the panel is not clipped, and the section becomes a readable single column.
 
-Run:
+- [ ] **Step 6: Stop only the validated local server and remove QA artifacts**
 
-```powershell
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint resize 390 844
-$mobileChineseSnapshot = & $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint snapshot
-$mobileChineseSnapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint eval "() => ({ width: innerWidth, exactTitle: document.body.innerText.includes('我对当前 AI 领域的看法与实践'), exactUsage: document.body.innerText.includes('约 100 亿 token'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint screenshot
-$enRef = [regex]::Match(($mobileChineseSnapshot -join "`n"), 'button "EN".*\[ref=(e\d+)\]').Groups[1].Value
-if (-not $enRef) { throw 'English language button ref not found in fresh snapshot' }
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint click $enRef
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint snapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint eval "() => ({ width: innerWidth, exactTitle: document.body.innerText.includes('My Perspective on AI and How I Put It into Practice'), exactUsage: document.body.innerText.includes('approximately 10 billion tokens'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint screenshot
-```
+Resolve the listener on port 4173 and inspect its executable path and command line. Stop it only if both identify the exact bundled Python process serving `D:\A_personal_proj\personal-portfolio\out`. Close the Playwright session, remove only its generated screenshots/session artifacts, and confirm `git status --short` contains no unrelated changes.
 
-Confirm the section becomes a readable single column, all three cards remain
-fully visible, long English titles wrap naturally, and neither language causes
-body horizontal overflow. Capture screenshots through the CLI under its
-generated `.playwright-cli/` directory for visual inspection.
-
-- [ ] **Step 7: Close browser, stop only the validated local server, and clean generated QA artifacts**
-
-Run:
-
-```powershell
-npx --yes --package '@playwright/cli@latest' playwright-cli -s=ai-viewpoint close
-$socket = Get-NetTCPConnection -LocalPort 4173 -State Listen -ErrorAction Stop
-$process = Get-CimInstance Win32_Process -Filter "ProcessId = $($socket.OwningProcess)"
-$process | Select-Object ProcessId,ExecutablePath,CommandLine
-```
-
-Only if `ExecutablePath` is the bundled Python executable and `CommandLine`
-contains the exact `personal-portfolio\out` directory, stop that PID. Then run:
-
-```powershell
-Set-Location 'D:\A_personal_proj'
-git clean -nd -- personal-portfolio/.playwright-cli personal-portfolio/output
-git clean -fd -- personal-portfolio/.playwright-cli personal-portfolio/output
-git status --short
-```
-
-Expected: only intended tracked changes or a clean worktree remain; no QA
-artifact is left untracked.
-
-### Task 4: Push, Verify GitHub Pages, and Close the Change
+### Task 4: Commit, Push, Deploy, and Verify the Live Site
 
 **Files:**
-- Verify: Git repository and deployed static site
+- Commit: the five approved website source/test files
+- Verify: Git repository and deployed GitHub Pages site
 
-- [ ] **Step 1: Confirm the local branch is based on current `origin/main`**
+- [ ] **Step 1: Commit the implementation**
 
 Run:
 
 ```powershell
 Set-Location 'D:\A_personal_proj'
+git add -- personal-portfolio/src/content/site.ts personal-portfolio/src/content/sections.ts personal-portfolio/src/components/PortfolioSections.tsx personal-portfolio/src/content/content.test.ts personal-portfolio/src/components/PortfolioSections.test.tsx
+git diff --cached --check
+git commit -m "Present AI Agent practice as a continuous narrative"
+```
+
+Expected: one implementation commit containing only the approved website source and test changes. The earlier design commit remains immediately before it.
+
+- [ ] **Step 2: Confirm synchronization and push `main`**
+
+Run:
+
+```powershell
 git fetch origin main
 git rev-list --left-right --count HEAD...origin/main
 git status --short
-```
-
-Expected before push: the local branch is ahead only by the approved design and
-implementation commits, with no remote-only commits and a clean worktree.
-
-- [ ] **Step 2: Push `main`**
-
-Run:
-
-```powershell
 git push origin main
 ```
 
-Expected: the local commits are accepted by `origin/main`.
+Expected: there are no remote-only commits, the worktree is clean, and both the design and implementation commits are accepted by `origin/main`.
 
 - [ ] **Step 3: Wait for the exact GitHub Pages workflow run**
 
-Use the pushed full commit SHA to query the workflow runs:
+Use the pushed full commit SHA to find the matching `Deploy portfolio to GitHub Pages` workflow run through the GitHub API. Poll at short bounded intervals until that exact run reaches `completed / success`; fail the deployment gate if it concludes unsuccessfully or no matching run can be found.
 
-```powershell
-$fullSha = git rev-parse HEAD
-$headers = @{ 'User-Agent' = 'Codex-Desktop'; 'Accept' = 'application/vnd.github+json' }
-$runs = Invoke-RestMethod -Uri 'https://api.github.com/repos/Foreverlongdamai/Foreverlongdamai.github.io/actions/runs?branch=main&per_page=5' -Headers $headers
-$run = $runs.workflow_runs | Where-Object { $_.head_sha -eq $fullSha } | Select-Object -First 1
-if (-not $run) { throw "No workflow run found for $fullSha" }
-for ($attempt = 0; $attempt -lt 10; $attempt++) {
-  $run = Invoke-RestMethod -Uri "https://api.github.com/repos/Foreverlongdamai/Foreverlongdamai.github.io/actions/runs/$($run.id)" -Headers $headers
-  $run | Select-Object id,name,status,conclusion,head_sha,html_url
-  if ($run.status -eq 'completed') { break }
-  Start-Sleep -Seconds 5
-}
-if ($run.status -ne 'completed' -or $run.conclusion -ne 'success') {
-  throw "Workflow did not reach completed/success; current state: $($run.status)/$($run.conclusion)"
-}
-```
+- [ ] **Step 4: Verify the deployed bilingual section**
 
-Expected: `Deploy portfolio to GitHub Pages` for the pushed SHA reaches
-`completed / success`.
-
-- [ ] **Step 4: Verify the deployed bilingual content**
-
-Open a cache-busted URL in a fresh Playwright session:
-
-```powershell
-$fullSha = git rev-parse HEAD
-$liveUrl = "https://foreverlongdamai.github.io/?v=$fullSha"
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint open $liveUrl
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint resize 1440 1000
-$liveEnglishSnapshot = & $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint snapshot
-$liveEnglishSnapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint eval "() => ({ exactNavigation: document.body.innerText.includes('AI Views'), exactTitle: document.body.innerText.includes('My Perspective on AI and How I Put It into Practice'), exactUsage: document.body.innerText.includes('approximately 10 billion tokens'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-$liveZhRef = [regex]::Match(($liveEnglishSnapshot -join "`n"), 'button "中文".*\[ref=(e\d+)\]').Groups[1].Value
-if (-not $liveZhRef) { throw 'Live Chinese language button ref not found' }
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint click $liveZhRef
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint resize 390 844
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint snapshot
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint eval "() => ({ exactNavigation: document.body.innerText.includes('AI 观点'), exactTitle: document.body.innerText.includes('我对当前 AI 领域的看法与实践'), exactUsage: document.body.innerText.includes('约 100 亿 token'), noHorizontalOverflow: document.body.scrollWidth === document.documentElement.clientWidth })"
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint console
-& $pw --yes --package '@playwright/cli@latest' playwright-cli -s=live-ai-viewpoint close
-```
-
-Check English and Chinese across the two viewport sizes, including:
-
-- `AI Views / AI 观点` navigation label;
-- approved section title and three card titles;
-- `approximately 10 billion tokens / 约 100 亿 token` statement;
-- no body horizontal overflow;
-- no console errors or warnings.
+Open `https://foreverlongdamai.github.io/?v=<full-commit-sha>#thoughts` in a fresh browser session. Repeat the desktop English and mobile Chinese content, structure, overflow, and console checks against the live site; confirm no old three-card copy remains.
 
 - [ ] **Step 5: Run final repository verification**
 
@@ -441,5 +287,4 @@ $remoteSha = git ls-remote origin refs/heads/main | ForEach-Object { ($_ -split 
 git status --porcelain
 ```
 
-Expected: local and remote SHAs are identical and `git status --porcelain`
-returns no output.
+Expected: local and remote SHAs are identical and `git status --porcelain` returns no output.
