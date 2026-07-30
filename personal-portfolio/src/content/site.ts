@@ -7,7 +7,7 @@ export const siteContent: SiteContent = {
     { id: "research", label: { en: "Research Fields", zh: "研究领域" } },
     { id: "experience", label: { en: "Experience", zh: "经历" } },
     { id: "projects", label: { en: "Projects", zh: "项目" } },
-    { id: "thoughts", label: { en: "AI Views", zh: "AI 观点" } },
+    { id: "thoughts", label: { en: "AI Practice", zh: "AI 实践" } },
     { id: "education", label: { en: "Education", zh: "教育" } },
     { id: "awards", label: { en: "Awards", zh: "奖项" } },
     { id: "skills", label: { en: "Skills", zh: "技能" } },

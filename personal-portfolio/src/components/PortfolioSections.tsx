@@ -23,13 +23,13 @@ import {
 } from "lucide-react";
 import { projects } from "@/content/projects";
 import {
+  aiAgentPracticeNarrative,
   awards,
   education,
   experience,
   portfolioSections,
   researchAreas,
   skillGroups,
-  thoughts,
 } from "@/content/sections";
 import { siteContent } from "@/content/site";
 import { getLocalizedText } from "@/content/types";
@@ -171,17 +171,9 @@ export function PortfolioSections() {
       </Section>
 
       <Section section={findSection("thoughts")} locale={locale}>
-        <div className="thought-list">
-          {thoughts.map((thought, index) => (
-            <article className="thought-item" key={thought.title.en}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>{getLocalizedText(thought.title, locale)}</h3>
-                <p>{getLocalizedText(thought.body, locale)}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <article className="lead-panel ai-agent-practice-panel">
+          <p>{getLocalizedText(aiAgentPracticeNarrative, locale)}</p>
+        </article>
       </Section>
 
       <Section section={findSection("education")} locale={locale} className="section-muted">

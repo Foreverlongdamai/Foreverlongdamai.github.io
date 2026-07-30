@@ -31,4 +31,20 @@ describe("PortfolioSections", () => {
     expect(markup).toContain("Cranfield University, United Kingdom");
     expect(markup).toContain("Dr Linghai Lu");
   });
+
+  it("renders AI Agent experience as one continuous narrative", () => {
+    const markup = renderToStaticMarkup(
+      <LanguageProvider>
+        <PortfolioSections />
+      </LanguageProvider>,
+    );
+
+    expect(markup).toContain('id="thoughts"');
+    expect(markup).toContain("From Codex and Claude Code to AI-Native Delivery");
+    expect(markup).toContain("approximately 10 billion tokens");
+    expect(markup).toContain('class="lead-panel ai-agent-practice-panel"');
+    expect(markup).not.toContain('class="thought-list"');
+    expect(markup).not.toContain('class="thought-item"');
+    expect(markup).not.toContain("Clear Ideas Determine Implementation Quality");
+  });
 });
