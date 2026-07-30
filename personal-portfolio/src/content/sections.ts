@@ -54,8 +54,8 @@ export const portfolioSections: PortfolioSection[] = [
     id: "thoughts",
     eyebrow: { en: "AI Agent Experience", zh: "AI Agent 实践经历" },
     title: {
-      en: "From Codex and Claude Code to AI-Native Delivery",
-      zh: "从 Codex 与 Claude Code 到 AI 原生交付",
+      en: "My AI Agent Practice: From Requirements to Delivery",
+      zh: "我的 AI Agent 实践：从需求到交付",
     },
     description: {
       en: "Deep, hands-on experience using AI agents to turn requirements into working systems.",

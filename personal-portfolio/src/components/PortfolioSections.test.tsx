@@ -40,7 +40,7 @@ describe("PortfolioSections", () => {
     );
 
     expect(markup).toContain('id="thoughts"');
-    expect(markup).toContain("From Codex and Claude Code to AI-Native Delivery");
+    expect(markup).toContain("My AI Agent Practice: From Requirements to Delivery");
     expect(markup).toContain("approximately 10 billion tokens");
     expect(markup).toContain('class="lead-panel ai-agent-practice-panel"');
     expect(markup).not.toContain('class="thought-list"');
