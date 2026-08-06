@@ -44,10 +44,10 @@ export const portfolioSections: PortfolioSection[] = [
   {
     id: "projects",
     eyebrow: { en: "Selected Work", zh: "代表项目" },
-    title: { en: "Projects that connect AI methods with usable systems", zh: "连接 AI 方法与可用系统的项目" },
+    title: { en: "Projects I Have Built", zh: "我做过的实践项目" },
     description: {
-      en: "These projects show my experience with interpretable multimodal assessment, detection, segmentation, simulation, and web development.",
-      zh: "这些项目展示了我在可解释多模态评估、检测、分割、仿真和 Web 开发方面的实践经历。",
+      en: "These projects show the products I have built and reflect my ability to learn quickly and turn ideas into working results.",
+      zh: "这些项目展示了我目前做过的产品，也体现了我快速学习并把想法变成实际成果的能力。",
     },
   },
   {

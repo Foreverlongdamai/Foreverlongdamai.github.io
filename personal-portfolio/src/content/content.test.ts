@@ -128,13 +128,39 @@ describe("localized content model", () => {
     }
 
     expect(pilotProject.title.en).toBe(
-      "AI-Based System for Evaluating eVTOL Pilot Training Effectiveness",
+      "eVTOL Pilot Training Effectiveness Assessment System",
     );
+    expect(pilotProject.title.zh).toBe("eVTOL 飞行员训练效果评估系统");
+    expect(pilotProject.category.en).toBe(
+      "Cranfield University / eVTOL Pilot Training Assessment",
+    );
+    expect(pilotProject.scenario.en).toContain("primary project at Cranfield University");
+    expect(pilotProject.scenario.zh).toContain("英国 Cranfield University");
+    expect(pilotProject.work.en).toContain("front end and back end");
+    expect(pilotProject.work.zh).toContain("前后端的整体设计与实现");
     expect(Reflect.get(pilotProject, "repositoryUrl")).toBe(
       "https://github.com/Foreverlongdamai/pilot-assessment-AI-system",
     );
-    expect(pilotProject.impact.en).toContain("engineering prerelease");
-    expect(pilotProject.impact.zh).toContain("工程预发布");
+    expect(pilotProject.impact.en).toContain("downloadable Windows x64 package");
+    expect(pilotProject.impact.zh).toContain("可直接下载运行的 Windows x64 软件包");
+    expect(pilotProject.impact.en).not.toContain("user acceptance");
+    expect(pilotProject.impact.en).not.toContain("scientific validation");
+  });
+
+  it("introduces the projects section in clear product-focused language", () => {
+    const projectsSection = portfolioSections.find(
+      (section) => section.id === "projects",
+    );
+
+    expect(projectsSection).toEqual({
+      id: "projects",
+      eyebrow: { en: "Selected Work", zh: "代表项目" },
+      title: { en: "Projects I Have Built", zh: "我做过的实践项目" },
+      description: {
+        en: "These projects show the products I have built and reflect my ability to learn quickly and turn ideas into working results.",
+        zh: "这些项目展示了我目前做过的产品，也体现了我快速学习并把想法变成实际成果的能力。",
+      },
+    });
   });
 
   it("records the ongoing Cranfield University research internship", () => {

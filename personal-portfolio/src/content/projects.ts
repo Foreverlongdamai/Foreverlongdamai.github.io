@@ -4,24 +4,24 @@ export const projects: Project[] = [
   {
     slug: "pilot-assessment-ai-system",
     title: {
-      en: "AI-Based System for Evaluating eVTOL Pilot Training Effectiveness",
-      zh: "基于 AI 的 eVTOL 飞行员训练有效性评估系统",
+      en: "eVTOL Pilot Training Effectiveness Assessment System",
+      zh: "eVTOL 飞行员训练效果评估系统",
     },
     category: {
-      en: "eVTOL / Interpretable Multimodal Assessment",
-      zh: "eVTOL / 可解释多模态评估",
+      en: "Cranfield University / eVTOL Pilot Training Assessment",
+      zh: "Cranfield University / eVTOL 飞行训练评估",
     },
     scenario: {
-      en: "VR flight training produces flight-state, control, imagery, gaze/AOI, and physiological data, while task completion alone cannot explain how a pilot controlled the vehicle, allocated attention, or responded to workload.",
-      zh: "VR 飞行训练会产生飞行状态、操纵输入、画面、眼动/AOI 和生理信号等多模态数据，但仅看任务是否完成，无法解释飞行员如何操纵飞行器、分配注意力或应对工作负荷。",
+      en: "This is my primary project at Cranfield University. VR flight training produces large volumes of flight-state, control, first-person visual, eye-tracking, and physiological data, but task completion alone cannot show how a pilot completed the flight or which skills still need improvement. This project turns those data into interpretable and traceable evidence, helping researchers and flight-training experts design more systematic ways to evaluate pilot training effectiveness.",
+      zh: "这是我目前在英国 Cranfield University 主要开展的项目。VR 飞行训练会产生飞行状态、操纵输入、第一视角画面、眼动和生理信号等大量数据，但仅看任务是否完成，很难判断飞行员是如何完成操作的，以及哪些能力仍需加强。这个项目将这些数据转化为可解释、可追溯的评估依据，帮助研究人员和飞行训练专家更系统地设计飞行员训练效果评估方法。",
     },
     work: {
-      en: "I designed and implemented an offline Windows platform with a WinUI 3/.NET 10 frontend and Python 3.11/SQLite assessment core. Typed EvidenceRecipe pipelines model X/U/I/G/P interfaces, while missing-modality handling, task-specific schemes, editable Bayesian-network/CPT inference, and immutable RunSnapshots make each assessment interpretable and traceable.",
-      zh: "我设计并实现了一个离线 Windows 平台，采用 WinUI 3/.NET 10 前端与 Python 3.11/SQLite 评估核心。系统通过类型化 EvidenceRecipe 管线建模 X/U/I/G/P 接口，并以缺失模态处理、任务化方案、可编辑贝叶斯网络/CPT 推断和不可变 RunSnapshot 保证评估过程可解释、可追溯。",
+      en: "I designed and implemented the application's front end and back end, turning the research concept into a self-contained Windows desktop product. Through its visual interface, researchers can import flight data, define how assessment evidence is calculated, edit Bayesian networks, create separate assessment schemes for different training tasks, run assessments, view results, and trace each result back to the data and model configuration used. The interface is built with WinUI 3/.NET, supported by a local Python and SQLite backend.",
+      zh: "我负责软件前后端的整体设计与实现，并将研究构想落地为一款可在 Windows 本地独立运行的桌面软件。研究人员可以通过可视化界面导入飞行数据、定义评估证据的计算规则、编辑贝叶斯网络、为不同训练任务设计独立的评估方案，并运行评估、查看结果和追溯每项结果所使用的数据与模型配置。软件前端使用 WinUI 3/.NET，后端使用 Python 和 SQLite。",
     },
     impact: {
-      en: "Published the self-contained Windows x64 RC.4 engineering prerelease. Its release gate recorded 143 tests with 0 failures, Ruff passed, and the x64 Release build completed with 0 warnings and 0 errors; user acceptance and scientific validation remain pending.",
-      zh: "已发布自包含的 Windows x64 RC.4 工程预发布版本。发布门记录 143 项测试、0 项失败，Ruff 通过，x64 Release 构建为 0 警告、0 错误；用户验收与科学验证仍待完成。",
+      en: "I open-sourced the complete project on GitHub and published a downloadable Windows x64 package. The product's core functions and release workflow have been tested; after extraction, users can launch PilotAssessment.exe directly without separately installing Python, a database, or a development environment. The software supports the main workflow for designing assessment methods, importing data, editing models, running assessments, and tracing results, providing an extensible platform for researchers and domain experts to develop task-specific pilot assessment methods.",
+      zh: "我已将完整项目开源到 GitHub，并发布了可直接下载运行的 Windows x64 软件包。产品的核心功能和发布流程已经完成测试；用户解压后即可启动 PilotAssessment.exe，无需另外安装 Python、数据库或开发环境。软件已经支持评估方法设计、数据导入、模型编辑、评估运行和结果追溯等主要流程，为研究人员和领域专家进一步设计不同训练任务的飞行员评估方法提供了一套可扩展的平台。",
     },
     technologies: [
       "WinUI 3",
