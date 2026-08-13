@@ -247,8 +247,10 @@ body {
 
 .hero-meta span {
   display: inline-flex;
+  min-width: 0;
   align-items: center;
   gap: 0.4rem;
+  overflow-wrap: anywhere;
 }
 
 .system-visual {
@@ -422,10 +424,12 @@ body {
 .lead-panel,
 .info-card,
 .project-card,
+.hobby-card,
 .thought-item,
 .timeline-item,
 .award-card,
 .skill-card,
+.contact-card,
 .contact-panel {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-card);
@@ -434,19 +438,23 @@ body {
 
 .info-card,
 .project-card,
+.hobby-card,
 .thought-item,
 .timeline-item,
 .award-card,
-.skill-card {
+.skill-card,
+.contact-card {
   transition: border-color 200ms ease, background 200ms ease;
 }
 
 .info-card:hover,
 .project-card:hover,
+.hobby-card:hover,
 .thought-item:hover,
 .timeline-item:hover,
 .award-card:hover,
-.skill-card:hover {
+.skill-card:hover,
+.contact-card:hover {
   border-color: rgba(94, 234, 212, 0.26);
   background: rgba(255, 255, 255, 0.06);
 }
@@ -521,10 +529,12 @@ body {
 
 .info-card h3,
 .project-card h3,
+.hobby-card h3,
 .thought-item h3,
 .timeline-item h3,
 .award-card h3,
 .skill-card h3,
+.contact-card h3,
 .contact-panel h3 {
   color: #f8fbff;
   font-size: 1.08rem;
@@ -534,9 +544,11 @@ body {
 
 .info-card p,
 .project-card p,
+.hobby-card > p,
 .thought-item p,
 .timeline-item span,
 .award-card p,
+.contact-card address,
 .contact-panel p {
   color: #9fb1c6;
   line-height: 1.7;
@@ -545,6 +557,43 @@ body {
 .info-card {
   display: grid;
   gap: 0.95rem;
+}
+
+.hobby-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.hobby-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.hobby-card-header > div:last-child {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.hobby-card-header p,
+.contact-card-header p {
+  color: var(--accent-strong);
+  font-family: var(--font-data);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hobby-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hobby-links .project-repository-link {
+  margin-top: 0;
 }
 
 .project-card {
@@ -664,14 +713,71 @@ body {
 }
 
 .contact-panel {
-  grid-template-columns: 1fr auto;
-  align-items: center;
   padding: 1.25rem;
+}
+
+.contact-panel-copy {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  display: grid;
+  min-width: 0;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.contact-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.contact-card-header > svg {
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: var(--accent-strong);
+}
+
+.contact-card-header > div {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.contact-card address {
+  min-width: 0;
+  font-style: normal;
+  overflow-wrap: anywhere;
 }
 
 .contact-actions {
   display: grid;
   gap: 0.7rem;
+}
+
+.contact-actions a {
+  min-width: 0;
+}
+
+.contact-actions a > svg {
+  flex: 0 0 auto;
+}
+
+.contact-actions a > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-back-link {
+  justify-items: start;
 }
 
 @media (max-width: 960px) {
@@ -689,7 +795,7 @@ body {
   }
 
   .award-grid,
-  .contact-panel {
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -717,6 +823,7 @@ body {
   }
 
   .hero-actions a,
+  .hobby-links a,
   .contact-actions a {
     width: 100%;
   }

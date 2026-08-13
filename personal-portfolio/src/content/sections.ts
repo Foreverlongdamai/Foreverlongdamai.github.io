@@ -1,5 +1,6 @@
 import type {
   Award,
+  HobbyContent,
   LocalizedText,
   PortfolioSection,
   ResearchArea,
@@ -94,8 +95,8 @@ export const portfolioSections: PortfolioSection[] = [
     eyebrow: { en: "Contact", zh: "联系" },
     title: { en: "Open to internships, research, and collaboration", zh: "欢迎实习、研究与项目合作交流" },
     description: {
-      en: "The easiest way to reach me is by email. Repository links for open-source work are included with the corresponding projects above.",
-      zh: "目前最方便的联系方式是邮箱。开源项目的仓库链接已附在上方对应的项目介绍中。",
+      en: "I am currently based at Cranfield University in the UK. My Cranfield and China contact details are listed below.",
+      zh: "我目前在英国 Cranfield University，英国学校邮箱与中国常用联系方式均列在下方。",
     },
   },
 ];
@@ -125,6 +126,21 @@ export const researchAreas: ResearchArea[] = [
 export const aiAgentPracticeNarrative: LocalizedText = {
   en: "I am a long-term, intensive user of Codex and Claude Code, and my cumulative usage across two ChatGPT accounts is approximately 10 billion tokens. Many of my current projects are delivered through AI-agent-centered workflows spanning requirements analysis, specification design, implementation, debugging, testing, documentation, and final delivery. Through sustained practice, I have become convinced that the speed and accuracy of AI depend heavily on how complete the idea it receives is: when goals, context, constraints, and acceptance criteria are clear and organized through specifications or continued dialogue into context the model can understand, AI can turn ideas into working results with remarkable speed. My advantage is not simply proficiency with the tools; it is the ability to understand real requirements quickly from documents and communication, identify and resolve ambiguity, translate requirements into executable specifications for agents, and continuously verify and steer the implementation until the project is delivered accurately and efficiently.",
   zh: "我长期深度使用 Codex 与 Claude Code，并在两个 ChatGPT 账号中累计使用约 100 亿 token。如今，我的许多项目都通过以 AI Agent 为核心的工作流完成，覆盖需求分析、规格设计、代码实现、调试、测试、文档与最终交付。在持续实践中，我越来越确信，AI 的实现效率和准确性高度取决于输入想法的完整度：当目标、背景、约束和验收标准足够清晰，并通过规格文档或持续沟通组织为 AI 能够理解的上下文时，AI 可以非常迅速地把想法转化为可运行成果。我的优势不只是熟练使用工具，而是能够从文档和沟通中快速理解真实需求、识别并消除歧义、把需求转化为 Agent 可执行的规格，并在实现过程中持续验证结果、修正方向，最终推动项目准确、高效地落地。",
+};
+
+export const hobby: HobbyContent = {
+  title: {
+    en: "Games & Game Content Creation",
+    zh: "游戏与内容创作",
+  },
+  body: {
+    en: "I enjoy strategy games and extending the experience through DIY game-content creation. I designed and built the “Lelouch / Zero” leader Mod for Sid Meier’s Civilization VII, implementing systems around Geass unit control, the Zero heroic commander, Black Knights, a dedicated promotion path, and Zero Requiem, together with bilingual content and automated tests. The Mod is published on Steam Workshop, and its source and implementation details are open on GitHub.",
+    zh: "我热爱策略游戏，也喜欢通过 DIY 游戏内容把自己的想法变成可实际游玩的体验。我为《文明 VII》设计并制作了“Lelouch / Zero”领袖 Mod，围绕 Geass 单位控制、Zero 英雄指挥官、零之骑士、专属晋升和“零之镇魂曲”等机制构建玩法，并配套中英文文本与自动化测试。该 Mod 已发布至 Steam 创意工坊，源码与实现细节同步开源在 GitHub。",
+  },
+  repositoryUrl:
+    "https://github.com/Foreverlongdamai/Civilization_mod_Lelouch-Lamperouge",
+  workshopUrl:
+    "https://steamcommunity.com/sharedfiles/filedetails/?id=3780386007",
 };
 
 export const education: TimelineItem[] = [

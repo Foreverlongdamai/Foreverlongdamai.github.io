@@ -54,4 +54,3 @@ Chinese copy should read naturally as personal experience rather than a software
 3. Run unit tests, lint, and the production static export build.
 4. Inspect the built site in Chinese and English at desktop and mobile widths, including external links and text overflow.
 5. Commit only portfolio files, push `main`, monitor the GitHub Pages workflow, and verify the public URL contains the new Cranfield email and Civilization VII repository link.
-

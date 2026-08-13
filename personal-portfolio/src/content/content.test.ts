@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { siteContent } from "./site";
 import { projects } from "./projects";
 import {
+  hobby,
   portfolioSections,
   researchAreas,
   skillGroups,
@@ -31,15 +32,69 @@ describe("localized content model", () => {
     }
   });
 
-  it("contains bilingual identity and contact information", () => {
+  it("contains bilingual identity and regional contact information", () => {
     expect(siteContent.profile.name.en).toBe("Mai Long");
     expect(siteContent.profile.name.zh).toBe("Mai Long");
-    expect(siteContent.profile.location).toEqual({
-      en: "Shandong University of Science and Technology · Cranfield University, UK",
-      zh: "山东科技大学 · 英国克兰菲尔德大学",
+    expect(siteContent.profile.contacts).toEqual([
+      {
+        id: "cranfield",
+        current: true,
+        label: { en: "United Kingdom", zh: "英国" },
+        organization: {
+          en: "Cranfield University",
+          zh: "英国克兰菲尔德大学",
+        },
+        address: {
+          en: "College Road, Cranfield, Bedfordshire, MK43 0AL, UK",
+          zh: "College Road, Cranfield, Bedfordshire, MK43 0AL, UK",
+        },
+        email: "Mai.Long.358@cranfield.ac.uk",
+      },
+      {
+        id: "china",
+        current: false,
+        label: { en: "China", zh: "中国" },
+        organization: {
+          en: "Shandong University of Science and Technology",
+          zh: "山东科技大学",
+        },
+        address: {
+          en: "Qingdao, Shandong, China",
+          zh: "中国山东省青岛市",
+        },
+        email: "long204323@gmail.com",
+        phone: "+86 17685762976",
+      },
+    ]);
+  });
+
+  it("records games and DIY game content as a personal interest", () => {
+    expect(hobby.title).toEqual({
+      en: "Games & Game Content Creation",
+      zh: "游戏与内容创作",
     });
-    expect(siteContent.profile.email).toContain("@");
-    expect(siteContent.profile.phone).toMatch(/\d/);
+    expect(hobby.body.zh).toContain("游戏");
+    expect(hobby.body.zh).toContain("DIY");
+    expect(hobby.body.zh).toContain("《文明 VII》");
+    expect(hobby.body.zh).toContain("Steam 创意工坊");
+    expect(hobby.repositoryUrl).toBe(
+      "https://github.com/Foreverlongdamai/Civilization_mod_Lelouch-Lamperouge",
+    );
+    expect(hobby.workshopUrl).toBe(
+      "https://steamcommunity.com/sharedfiles/filedetails/?id=3780386007",
+    );
+  });
+
+  it("keeps Shandong and Cranfield affiliations available for the hero", () => {
+    expect(
+      siteContent.profile.contacts.map((contact) => contact.organization.en),
+    ).toEqual([
+      "Cranfield University",
+      "Shandong University of Science and Technology",
+    ]);
+    expect(
+      siteContent.profile.contacts.filter((contact) => contact.current),
+    ).toHaveLength(1);
   });
 
   it("contains project entries with bilingual descriptions and technologies", () => {

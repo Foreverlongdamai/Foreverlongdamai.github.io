@@ -10,14 +10,22 @@ export type NavItem = {
   label: LocalizedText;
 };
 
+export type ContactProfile = {
+  id: string;
+  current: boolean;
+  label: LocalizedText;
+  organization: LocalizedText;
+  address: LocalizedText;
+  email: string;
+  phone?: string;
+};
+
 export type ProfileContent = {
   name: LocalizedText;
   role: LocalizedText;
   tagline: LocalizedText;
   intro: LocalizedText;
-  location: LocalizedText;
-  email: string;
-  phone: string;
+  contacts: ContactProfile[];
   focus: LocalizedText[];
   actions: {
     primary: LocalizedText;
@@ -58,6 +66,13 @@ export type ResearchArea = {
 export type Thought = {
   title: LocalizedText;
   body: LocalizedText;
+};
+
+export type HobbyContent = {
+  title: LocalizedText;
+  body: LocalizedText;
+  repositoryUrl: string;
+  workshopUrl: string;
 };
 
 export type TimelineItem = {

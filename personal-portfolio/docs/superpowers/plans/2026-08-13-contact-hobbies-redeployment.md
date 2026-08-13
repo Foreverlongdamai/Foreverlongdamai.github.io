@@ -155,4 +155,3 @@ Wait for both build and deploy jobs to succeed. If a GitHub service incident rec
 - [ ] **Step 5: Verify the public site**
 
 Open `https://foreverlongdamai.github.io/` with cache bypass and confirm it contains `Mai.Long.358@cranfield.ac.uk`, the full Cranfield address, and the Civilization VII GitHub URL. Check the Chinese language view and at least one mobile viewport before reporting completion.
-

@@ -27,12 +27,37 @@ export const siteContent: SiteContent = {
       en: "I am pursuing an M.S. in Computer Science at Shandong University of Science and Technology and undertaking a 2026 research internship at Cranfield University. My work spans interpretable multimodal assessment for eVTOL flight training, underwater visual detection, traffic simulation, and web development, alongside research in embodied intelligence.",
       zh: "我目前在山东科技大学攻读计算机科学硕士，并于 2026 年在英国克兰菲尔德大学开展研究实习。我的经历涵盖 eVTOL 飞行训练的可解释多模态评估、水下视觉检测、交通场景仿真和 Web 开发，并持续开展具身智能方向的研究。",
     },
-    location: {
-      en: "Shandong University of Science and Technology · Cranfield University, UK",
-      zh: "山东科技大学 · 英国克兰菲尔德大学",
-    },
-    email: "long204323@gmail.com",
-    phone: "+86 17685762976",
+    contacts: [
+      {
+        id: "cranfield",
+        current: true,
+        label: { en: "United Kingdom", zh: "英国" },
+        organization: {
+          en: "Cranfield University",
+          zh: "英国克兰菲尔德大学",
+        },
+        address: {
+          en: "College Road, Cranfield, Bedfordshire, MK43 0AL, UK",
+          zh: "College Road, Cranfield, Bedfordshire, MK43 0AL, UK",
+        },
+        email: "Mai.Long.358@cranfield.ac.uk",
+      },
+      {
+        id: "china",
+        current: false,
+        label: { en: "China", zh: "中国" },
+        organization: {
+          en: "Shandong University of Science and Technology",
+          zh: "山东科技大学",
+        },
+        address: {
+          en: "Qingdao, Shandong, China",
+          zh: "中国山东省青岛市",
+        },
+        email: "long204323@gmail.com",
+        phone: "+86 17685762976",
+      },
+    ],
     focus: [
       { en: "Embodied Intelligence", zh: "具身智能" },
       {

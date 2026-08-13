@@ -8,6 +8,11 @@ import { useLanguage } from "./LanguageProvider";
 export function Hero() {
   const { locale } = useLanguage();
   const { profile } = siteContent;
+  const currentContact = profile.contacts.find((contact) => contact.current);
+
+  if (!currentContact) {
+    throw new Error("Missing current contact profile");
+  }
 
   return (
     <section id="home" className="hero-section">
@@ -29,7 +34,7 @@ export function Hero() {
               {getLocalizedText(profile.actions.primary, locale)}
               <ArrowDown aria-hidden="true" size={17} />
             </a>
-            <a href={`mailto:${profile.email}`} className="secondary-action">
+            <a href={`mailto:${currentContact.email}`} className="secondary-action">
               <Mail aria-hidden="true" size={17} />
               {getLocalizedText(profile.actions.secondary, locale)}
             </a>
@@ -37,11 +42,13 @@ export function Hero() {
           <div className="hero-meta">
             <span>
               <MapPin aria-hidden="true" size={16} />
-              {getLocalizedText(profile.location, locale)}
+              {profile.contacts
+                .map((contact) => getLocalizedText(contact.organization, locale))
+                .join(" · ")}
             </span>
             <span>
               <Mail aria-hidden="true" size={16} />
-              {profile.email}
+              {currentContact.email}
             </span>
           </div>
         </div>

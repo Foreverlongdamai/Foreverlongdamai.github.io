@@ -12,8 +12,10 @@ import {
   CodeXml,
   Eye,
   FolderGit2,
+  Gamepad2,
   GraduationCap,
   Mail,
+  MapPin,
   Phone,
   Ship,
   ShoppingCart,
@@ -27,6 +29,7 @@ import {
   awards,
   education,
   experience,
+  hobby,
   portfolioSections,
   researchAreas,
   skillGroups,
@@ -75,6 +78,40 @@ export function PortfolioSections() {
               <span>{locale === "en" ? "research fields" : "研究领域"}</span>
             </div>
           </div>
+          <article className="hobby-card">
+            <div className="hobby-card-header">
+              <div className="card-icon">
+                <Gamepad2 aria-hidden="true" size={20} />
+              </div>
+              <div>
+                <p>{locale === "en" ? "Personal Interest" : "兴趣爱好"}</p>
+                <h3>{getLocalizedText(hobby.title, locale)}</h3>
+              </div>
+            </div>
+            <p>{getLocalizedText(hobby.body, locale)}</p>
+            <div className="hobby-links">
+              <a
+                className="project-repository-link"
+                href={hobby.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FolderGit2 aria-hidden="true" size={17} />
+                {locale === "en" ? "View GitHub Project" : "查看 GitHub 项目"}
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </a>
+              <a
+                className="project-repository-link"
+                href={hobby.workshopUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Gamepad2 aria-hidden="true" size={17} />
+                {locale === "en" ? "Steam Workshop" : "Steam 创意工坊"}
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </a>
+            </div>
+          </article>
         </div>
       </Section>
 
@@ -232,23 +269,41 @@ export function PortfolioSections() {
 
       <Section section={findSection("contact")} locale={locale} className="contact-section">
         <div className="contact-panel">
-          <div>
+          <div className="contact-panel-copy">
             <h3>{locale === "en" ? "Let's connect" : "保持联系"}</h3>
             <p>
               {locale === "en"
-                ? "I am continuing to expand this portfolio with new projects, research notes, and demos."
-                : "我会继续把新的项目、研究笔记和 Demo 补充到这个个人网站中。"}
+                ? "I am currently based at Cranfield University. You can reach me through either of the contact routes below."
+                : "我目前在英国 Cranfield University，可通过下方的英国学校邮箱或中国常用联系方式与我联系。"}
             </p>
           </div>
-          <div className="contact-actions">
-            <a href={`mailto:${profile.email}`}>
-              <Mail aria-hidden="true" size={18} />
-              {profile.email}
-            </a>
-            <a href={`tel:${profile.phone.replaceAll(" ", "")}`}>
-              <Phone aria-hidden="true" size={18} />
-              {profile.phone}
-            </a>
+          <div className="contact-grid">
+            {profile.contacts.map((contact) => (
+              <article className="contact-card" key={contact.id}>
+                <div className="contact-card-header">
+                  <MapPin aria-hidden="true" size={20} />
+                  <div>
+                    <p>{getLocalizedText(contact.label, locale)}</p>
+                    <h3>{getLocalizedText(contact.organization, locale)}</h3>
+                  </div>
+                </div>
+                <address>{getLocalizedText(contact.address, locale)}</address>
+                <div className="contact-actions">
+                  <a href={`mailto:${contact.email}`}>
+                    <Mail aria-hidden="true" size={18} />
+                    <span>{contact.email}</span>
+                  </a>
+                  {contact.phone ? (
+                    <a href={`tel:${contact.phone.replaceAll(" ", "")}`}>
+                      <Phone aria-hidden="true" size={18} />
+                      <span>{contact.phone}</span>
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="contact-actions contact-back-link">
             <a href="#home">
               <ArrowUp aria-hidden="true" size={18} />
               {locale === "en" ? "Back to top" : "回到顶部"}
