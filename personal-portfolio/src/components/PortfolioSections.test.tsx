@@ -66,20 +66,15 @@ describe("PortfolioSections", () => {
     expect(markup).toContain('href="tel:+8617685762976"');
   });
 
-  it("renders game-content creation as a personal interest with safe links", () => {
+  it("does not render the removed About section or e-commerce project", () => {
     const markup = renderToStaticMarkup(
       <LanguageProvider>
         <PortfolioSections />
       </LanguageProvider>,
     );
 
-    expect(markup).toContain("Games &amp; Game Content Creation");
-    expect(markup).toContain("Lelouch / Zero");
-    expect(markup).toContain(
-      'href="https://github.com/Foreverlongdamai/Civilization_mod_Lelouch-Lamperouge" target="_blank" rel="noopener noreferrer"',
-    );
-    expect(markup).toContain(
-      'href="https://steamcommunity.com/sharedfiles/filedetails/?id=3780386007" target="_blank" rel="noopener noreferrer"',
-    );
+    expect(markup).not.toContain('id="about"');
+    expect(markup).not.toContain("A practical builder with a research-driven direction");
+    expect(markup).not.toContain("Simple E-Commerce Webpage Development");
   });
 });

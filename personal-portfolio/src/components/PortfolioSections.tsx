@@ -9,16 +9,13 @@ import {
   BrainCircuit,
   BriefcaseBusiness,
   CarFront,
-  CodeXml,
   Eye,
   FolderGit2,
-  Gamepad2,
   GraduationCap,
   Mail,
   MapPin,
   Phone,
   Ship,
-  ShoppingCart,
   Workflow,
   Wrench,
   type LucideIcon,
@@ -29,7 +26,6 @@ import {
   awards,
   education,
   experience,
-  hobby,
   portfolioSections,
   researchAreas,
   skillGroups,
@@ -40,8 +36,8 @@ import { useLanguage } from "./LanguageProvider";
 import { Section } from "./Section";
 
 const researchIcons: LucideIcon[] = [Bot, Workflow];
-const projectIcons: LucideIcon[] = [BrainCircuit, Ship, CarFront, ShoppingCart];
-const skillIcons: LucideIcon[] = [Eye, Boxes, CodeXml, BrainCircuit];
+const projectIcons: LucideIcon[] = [BrainCircuit, Ship, CarFront];
+const skillIcons: LucideIcon[] = [Eye, Boxes, BrainCircuit];
 
 function findSection(id: string) {
   const section = portfolioSections.find((item) => item.id === id);
@@ -59,62 +55,6 @@ export function PortfolioSections() {
 
   return (
     <>
-      <Section section={findSection("about")} locale={locale}>
-        <div className="content-stack">
-          <div className="lead-panel">
-            <p>{getLocalizedText(profile.intro, locale)}</p>
-          </div>
-          <div className="metrics-grid">
-            <div>
-              <strong>{projects.length}</strong>
-              <span>{locale === "en" ? "project tracks" : "项目方向"}</span>
-            </div>
-            <div>
-              <strong>2027</strong>
-              <span>{locale === "en" ? "M.S. graduation" : "硕士预计毕业"}</span>
-            </div>
-            <div>
-              <strong>2</strong>
-              <span>{locale === "en" ? "research fields" : "研究领域"}</span>
-            </div>
-          </div>
-          <article className="hobby-card">
-            <div className="hobby-card-header">
-              <div className="card-icon">
-                <Gamepad2 aria-hidden="true" size={20} />
-              </div>
-              <div>
-                <p>{locale === "en" ? "Personal Interest" : "兴趣爱好"}</p>
-                <h3>{getLocalizedText(hobby.title, locale)}</h3>
-              </div>
-            </div>
-            <p>{getLocalizedText(hobby.body, locale)}</p>
-            <div className="hobby-links">
-              <a
-                className="project-repository-link"
-                href={hobby.repositoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FolderGit2 aria-hidden="true" size={17} />
-                {locale === "en" ? "View GitHub Project" : "查看 GitHub 项目"}
-                <ArrowUpRight aria-hidden="true" size={16} />
-              </a>
-              <a
-                className="project-repository-link"
-                href={hobby.workshopUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Gamepad2 aria-hidden="true" size={17} />
-                {locale === "en" ? "Steam Workshop" : "Steam 创意工坊"}
-                <ArrowUpRight aria-hidden="true" size={16} />
-              </a>
-            </div>
-          </article>
-        </div>
-      </Section>
-
       <Section section={findSection("research")} locale={locale} className="section-muted">
         <div className="card-grid research-card-grid">
           {researchAreas.map((area, index) => {

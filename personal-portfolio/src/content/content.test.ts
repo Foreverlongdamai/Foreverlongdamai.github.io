@@ -30,11 +30,22 @@ describe("localized content model", () => {
     for (const item of siteContent.navigation) {
       expect(sectionIds.has(item.id)).toBe(true);
     }
+
+    expect(siteContent.navigation.some((item) => item.id === "about")).toBe(false);
+    expect(portfolioSections.some((section) => section.id === "about")).toBe(false);
   });
 
   it("contains bilingual identity and regional contact information", () => {
     expect(siteContent.profile.name.en).toBe("Mai Long");
     expect(siteContent.profile.name.zh).toBe("Mai Long");
+    expect(siteContent.profile.role).toEqual({
+      en: "Graduate Student in Computer Technology at Shandong University of Science and Technology",
+      zh: "山东科技大学计算机技术研究生",
+    });
+    expect(siteContent.profile.intro.en).toContain("graduate student in Computer Technology");
+    expect(siteContent.profile.intro.zh).toContain("计算机技术专业研究生");
+    expect(siteContent.profile.intro.en).not.toContain("M.S. in Computer Science");
+    expect(siteContent.profile.intro.zh).not.toContain("计算机科学硕士");
     expect(siteContent.profile.contacts).toEqual([
       {
         id: "cranfield",
@@ -98,7 +109,14 @@ describe("localized content model", () => {
   });
 
   it("contains project entries with bilingual descriptions and technologies", () => {
-    expect(projects.length).toBeGreaterThanOrEqual(3);
+    expect(projects.map((project) => project.slug)).toEqual([
+      "pilot-assessment-ai-system",
+      "underwater-fouling-detection",
+      "traffic-scene-simulation",
+    ]);
+    expect(
+      projects.some((project) => project.slug === "simple-ecommerce-webpage"),
+    ).toBe(false);
 
     for (const project of projects) {
       expect(project.slug).toMatch(/^[a-z0-9-]+$/);
@@ -136,6 +154,12 @@ describe("localized content model", () => {
       "Embodied Intelligence",
       "eVTOL Pilot Training Effectiveness",
     ]);
+    expect(skillGroups.map((group) => group.title.en)).toEqual([
+      "AI & Vision",
+      "Simulation",
+      "Research Fields",
+    ]);
+    expect(skillGroups.some((group) => group.title.en === "Web Development")).toBe(false);
   });
 
   it("presents the approved bilingual AI Agent practice narrative", () => {
@@ -174,7 +198,7 @@ describe("localized content model", () => {
       (project) => project.slug === "pilot-assessment-ai-system",
     );
 
-    expect(projects).toHaveLength(4);
+    expect(projects).toHaveLength(3);
     expect(projects[0]?.slug).toBe("pilot-assessment-ai-system");
     expect(pilotProject).toBeDefined();
 

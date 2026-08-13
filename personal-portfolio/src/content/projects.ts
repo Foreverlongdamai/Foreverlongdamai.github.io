@@ -72,23 +72,4 @@ export const projects: Project[] = [
     technologies: ["Unity3D", "C#", "Simulation", "Traffic Systems", "Data Communication"],
     featured: true,
   },
-  {
-    slug: "simple-ecommerce-webpage",
-    title: { en: "Simple E-Commerce Webpage Development", zh: "简易电商网页开发" },
-    category: { en: "Web Development", zh: "Web 开发" },
-    scenario: {
-      en: "The project explored a basic shopping webpage structure with product display and common e-commerce interface patterns.",
-      zh: "该项目探索了基础购物网页结构，包括商品展示和常见电商界面交互模式。",
-    },
-    work: {
-      en: "I developed a simple shopping webpage using Spring Boot and Vue, practicing full-stack page construction and front-end/back-end coordination.",
-      zh: "我使用 Spring Boot 和 Vue 开发了一个简易购物网页，练习了全栈页面搭建以及前后端协作流程。",
-    },
-    impact: {
-      en: "The work helped establish a practical foundation for web application development.",
-      zh: "这个项目帮助我建立了 Web 应用开发的实践基础。",
-    },
-    technologies: ["Spring Boot", "Vue", "Java", "Web UI"],
-    featured: false,
-  },
 ];

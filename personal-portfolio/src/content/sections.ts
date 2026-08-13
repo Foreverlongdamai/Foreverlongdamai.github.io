@@ -10,15 +10,6 @@ import type {
 
 export const portfolioSections: PortfolioSection[] = [
   {
-    id: "about",
-    eyebrow: { en: "Profile", zh: "个人简介" },
-    title: { en: "A practical builder with a research-driven direction", zh: "以研究方向驱动工程实践" },
-    description: {
-      en: "My current path connects embodied intelligence, eVTOL pilot training assessment, computer vision, and simulation. I value systems that can be explained clearly, tested in realistic scenarios, and improved through engineering iteration.",
-      zh: "我的当前方向连接具身智能、eVTOL 飞行员训练评估、计算机视觉与仿真系统。我重视能够被清晰解释、在真实场景中验证，并通过工程迭代持续优化的系统。",
-    },
-  },
-  {
     id: "research",
     eyebrow: { en: "Research Fields", zh: "研究领域" },
     title: {
@@ -66,10 +57,10 @@ export const portfolioSections: PortfolioSection[] = [
   {
     id: "education",
     eyebrow: { en: "Education", zh: "教育经历" },
-    title: { en: "Computer science and software engineering foundation", zh: "计算机科学与软件工程基础" },
+    title: { en: "Computer technology and software engineering foundation", zh: "计算机技术与软件工程基础" },
     description: {
-      en: "My academic background is rooted in software engineering and computer science, with current graduate work focused toward intelligent systems.",
-      zh: "我的学术背景来自软件工程与计算机科学，目前研究生阶段进一步转向智能系统相关方向。",
+      en: "My academic background is rooted in software engineering and computer technology, with current graduate work focused toward intelligent systems.",
+      zh: "我的学术背景来自软件工程与计算机技术，目前研究生阶段进一步转向智能系统相关方向。",
     },
   },
   {
@@ -146,14 +137,14 @@ export const hobby: HobbyContent = {
 export const education: TimelineItem[] = [
   {
     period: { en: "Expected June 2027", zh: "预计 2027 年 6 月毕业" },
-    title: { en: "Master of Science in Computer Science", zh: "计算机科学硕士" },
+    title: { en: "Master's Student in Computer Technology", zh: "计算机技术专业硕士研究生" },
     organization: {
       en: "Shandong University of Science and Technology",
       zh: "山东科技大学",
     },
     description: {
-      en: "Graduate study focused on computer science, intelligent systems, embodied intelligence, and eVTOL pilot training effectiveness.",
-      zh: "研究生阶段聚焦计算机科学、智能系统、具身智能与 eVTOL 飞行员训练有效性。",
+      en: "Graduate study focused on computer technology, intelligent systems, embodied intelligence, and eVTOL pilot training effectiveness.",
+      zh: "研究生阶段聚焦计算机技术、智能系统、具身智能与 eVTOL 飞行员训练有效性。",
     },
   },
   {
@@ -164,8 +155,8 @@ export const education: TimelineItem[] = [
       zh: "山东科技大学",
     },
     description: {
-      en: "Undergraduate major in software engineering, building the foundation for programming, web development, and systems work.",
-      zh: "本科专业为软件工程，建立了编程、Web 开发和系统实现方面的基础。",
+      en: "Undergraduate major in software engineering, building the foundation for programming, software engineering, and systems work.",
+      zh: "本科专业为软件工程，建立了编程、软件工程和系统实现方面的基础。",
     },
   },
 ];
@@ -213,10 +204,6 @@ export const skillGroups: SkillGroup[] = [
   {
     title: { en: "Simulation", zh: "仿真" },
     skills: ["Unity3D", "C#", "Traffic Scenarios", "Agent Logic"],
-  },
-  {
-    title: { en: "Web Development", zh: "Web 开发" },
-    skills: ["Next.js", "React", "TypeScript", "Vue", "Spring Boot"],
   },
   {
     title: { en: "Research Fields", zh: "研究领域" },
