@@ -23,7 +23,6 @@ export type ContactProfile = {
 export type ProfileContent = {
   name: LocalizedText;
   role: LocalizedText;
-  tagline: LocalizedText;
   intro: LocalizedText;
   contacts: ContactProfile[];
   focus: LocalizedText[];

@@ -28,7 +28,6 @@ export function Hero() {
             {getLocalizedText(profile.role, locale)}
           </p>
           <h1>{getLocalizedText(profile.name, locale)}</h1>
-          <p className="hero-tagline">{getLocalizedText(profile.tagline, locale)}</p>
           <div className="hero-focus-list" aria-label="Research fields">
             {profile.focus.map((item) => (
               <span key={item.en}>{getLocalizedText(item, locale)}</span>

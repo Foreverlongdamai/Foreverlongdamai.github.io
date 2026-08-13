@@ -24,6 +24,9 @@ describe("Hero", () => {
     expect(markup).toContain("Cranfield University");
     expect(markup).toContain("Shandong University of Science and Technology");
     expect(markup).toContain("<strong>3</strong><span>project tracks</span>");
+    expect(markup).not.toContain(
+      "I build interpretable AI and simulation systems for embodied agents and evidence-based eVTOL pilot training assessment.",
+    );
   });
 
   it("renders game-content creation in place of the system visual", () => {

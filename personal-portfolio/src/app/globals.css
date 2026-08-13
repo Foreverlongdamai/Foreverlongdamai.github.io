@@ -167,13 +167,6 @@ body {
   letter-spacing: -0.035em;
 }
 
-.hero-tagline {
-  max-width: 650px;
-  color: #c4d0de;
-  font-size: 1.2rem;
-  line-height: 1.75;
-}
-
 .hero-focus-list,
 .tag-row {
   display: flex;
@@ -757,10 +750,6 @@ body {
 
   .hero-copy h1 {
     font-size: 2.75rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.03rem;
   }
 
   .metrics-grid {

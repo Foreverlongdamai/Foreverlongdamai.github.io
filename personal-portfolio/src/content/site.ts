@@ -18,10 +18,6 @@ export const siteContent: SiteContent = {
       en: "Graduate Student in Computer Technology at Shandong University of Science and Technology",
       zh: "山东科技大学计算机技术研究生",
     },
-    tagline: {
-      en: "I build interpretable AI and simulation systems for embodied agents and evidence-based eVTOL pilot training assessment.",
-      zh: "我构建面向具身智能体与 eVTOL 飞行员训练评估的可解释 AI 和仿真系统。",
-    },
     intro: {
       en: "I am a graduate student in Computer Technology at Shandong University of Science and Technology and undertaking a 2026 research internship at Cranfield University. My work spans interpretable multimodal assessment for eVTOL flight training, underwater visual detection, and traffic simulation, alongside research in embodied intelligence.",
       zh: "我目前是山东科技大学计算机技术专业研究生，并于 2026 年在英国克兰菲尔德大学开展研究实习。我的经历涵盖 eVTOL 飞行训练的可解释多模态评估、水下视觉检测与交通场景仿真，并持续开展具身智能方向的研究。",
